@@ -1,0 +1,23 @@
+{
+  "name": "t1-2025",
+  "version": "1.0.0",
+  "description": "",
+  "main": "BinarySearch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhyago/DevFullStack-T1-2025.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhyago/DevFullStack-T1-2025/issues"
+  },
+  "homepage": "https://github.com/jhyago/DevFullStack-T1-2025#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
