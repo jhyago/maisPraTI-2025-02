@@ -8,27 +8,29 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e9f4f9;
+            background-color: #cddee6fd;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 115vh;
         }
 
         #form-container {
-            background-color: white;
+            background-color: #b0b5b8fd;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            padding: 15px;
+            font-weight: bold;
+            
         }
 
         h2 {
             text-align: center;
             font-size: 20px;
             color: #444;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         label {
@@ -60,7 +62,7 @@
         }
 
         button {
-            background-color: #4caf50;
+            background-color:  #54829f;
             color: white;
             cursor: pointer;
             border: none;
@@ -69,15 +71,22 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #387397;
         }
 
         input, select, textarea, button {
             padding: 10px;
             font-size: 16px;
             margin-bottom: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid #c2bcbc;
             border-radius: 5px;
+        }
+        button{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 22px;
+             font-weight: bold;
+            border: 1px solid black;
+            width: 45%;
         }
     </style>
 </head>
@@ -114,22 +123,6 @@
                 <label>Data de Nascimento:</label>
                 <input type="date">
             </div>
-            
-            <div class="input-group">
-                <label>Hora:</label>
-                <input type="time">
-            </div>
-            
-            <div class="input-group">
-                <label>Pesquisa:</label>
-                <input type="search">
-            </div>
-           
-            <div class="input-group">
-                <label>Quantidade:</label>
-                <input type="number">
-            </div>
-
             <div class="input-group">
                 <label>Gênero:</label>
                 <div class="radio-group">
@@ -178,10 +171,7 @@
                 </select>
             </div>
 
-            <div class="input-group">
-                <label for="message">Mensagem</label>
-                <textarea name="message" placeholder="Deixe sua mensagem"></textarea>
-            </div>
+          
 
             <button type="submit">Enviar</button>
         </form>
