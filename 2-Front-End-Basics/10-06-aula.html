@@ -6,28 +6,34 @@
     <title>Aula 10 de Junho - Formulários</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+            outline: none;
+        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #e9f4f9;
+            background-image: url("src/assets/background.jpg");
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 170vh;
         }
 
         #form-container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(174, 203, 239, 0.25);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
             padding: 40px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         h2 {
             text-align: center;
             font-size: 20px;
-            color: #444;
+            color: #FFF;
             margin-bottom: 20px;
         }
 
@@ -35,7 +41,7 @@
             display: block;
             font-size: 16px;
             margin-bottom: 8px;
-            color: #555;
+            color: #FFF;
         }
 
         input {
@@ -44,6 +50,7 @@
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            width: 100%;
         }
 
         .input-group {
@@ -54,9 +61,23 @@
             margin-bottom: 5px;
         }
 
-        .input-group .radio-group, .input.group .checkbox-group {
+        .input-group .radio-group {
             display: flex;
             gap: 20px;
+            justify-content: space-evenly;
+        }
+
+        .radio-group p {
+            margin: 0;
+        }
+
+        .checkbox-group label{
+            display: flex;
+        }
+
+        .checkbox-input {
+            width: 15px;
+            margin: 10px;
         }
 
         button {
@@ -66,18 +87,21 @@
             border: none;
             font-size: 18px;
             padding: 10px;
+            width: 100%;
+            border-radius: 5px;
         }
 
         button:hover {
             background-color: #45a049;
         }
 
-        input, select, textarea, button {
+        input, select, textarea {
             padding: 10px;
             font-size: 16px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            width: 100%;
         }
     </style>
 </head>
@@ -134,13 +158,16 @@
                 <label>Gênero:</label>
                 <div class="radio-group">
                     <label for="male">
-                        <input type="radio" value="male" name="gender">Masculino
+                        <input type="radio" value="male" name="gender">
+                        <p>Masculino</p>
                     </label>
                     <label for="female">
-                        <input type="radio" value="female" name="gender">Feminino
+                        <input type="radio" value="female" name="gender">
+                        <p>Feminino</p>
                     </label>
                     <label for="other">
-                        <input type="radio" value="other" name="gender">Outro
+                        <input type="radio" value="other" name="gender">
+                        <p>Outro</p>
                     </label>
                 </div>
             </div>
@@ -149,18 +176,20 @@
                 <label>Preferências:</label>
                 <div class="checkbox-group">
                     <label for="newsletter">
-                        <input type="checkbox" name="newsletter">Gostaria de assinar a newsletter
+                        <input class="checkbox-input" type="checkbox" name="newsletter">
+                        <p>Gostaria de assinar a newsletter</p>
                     </label>
                     <label for="updates">
-                        <input type="checkbox" name="updates">Gostaria de receber atualizações
+                        <input class="checkbox-input" type="checkbox" name="updates">
+                        <p>Gostaria de receber atualizações</p>
                     </label>
                 </div>
             </div>
 
-            <div class="input-group">
+            <!-- <div class="input-group">
                 <label for="resume">Carregar Currículo:</label>
                 <input type="file" name="resume">
-            </div>
+            </div> -->
 
             <div class="input-group">
                 <label for="city">Cidade:</label>
