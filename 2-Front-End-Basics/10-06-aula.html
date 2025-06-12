@@ -8,34 +8,36 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e9f4f9;
-            margin: 0;
+            background-color: rgb(228 44 93);
+            margin: 20px 0px;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         #form-container {
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             padding: 40px;
+            background-color: #080000;
         }
 
         h2 {
             text-align: center;
-            font-size: 20px;
-            color: #444;
+            font-size: 25px;
+            color: #f1efef;
             margin-bottom: 20px;
         }
 
         label {
             display: block;
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 8px;
-            color: #555;
+            color: #f8f8f8;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
         input {
@@ -54,13 +56,22 @@
             margin-bottom: 5px;
         }
 
-        .input-group .radio-group, .input.group .checkbox-group {
+        .input-group .radio-group{
             display: flex;
             gap: 20px;
         }
 
+        .input-group .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="checkbox"]{
+            margin-bottom: 1px;
+        }
+
         button {
-            background-color: #4caf50;
+            background-color: rgb(228 44 93);
             color: white;
             cursor: pointer;
             border: none;
@@ -69,7 +80,7 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: rgb(214, 33, 81);
         }
 
         input, select, textarea, button {
@@ -79,10 +90,20 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+
+        input[type="file"] {
+            background-color: #222;
+            color: white;
+            border: 1px solid #555;
+            padding: 5px;
+            border-radius: 5px;
+        }   
+        
     </style>
 </head>
 <body>
     <div id="form-container">
+        <img src="https://www.codificaedu.com.br/_next/image?url=%2Fimages%2FimgLogo.png&w=256&q=75" alt="Codifica" >
         <h2>Formulário de Cadastro</h2>
         <form>
             <div class="input-group">
@@ -134,13 +155,13 @@
                 <label>Gênero:</label>
                 <div class="radio-group">
                     <label for="male">
-                        <input type="radio" value="male" name="gender">Masculino
+                        <input type="radio" id="male" value="male" name="gender">Masculino
                     </label>
                     <label for="female">
-                        <input type="radio" value="female" name="gender">Feminino
+                        <input type="radio" id="female" value="female" name="gender">Feminino
                     </label>
                     <label for="other">
-                        <input type="radio" value="other" name="gender">Outro
+                        <input type="radio" id="other" value="other" name="gender">Outro
                     </label>
                 </div>
             </div>
@@ -149,17 +170,17 @@
                 <label>Preferências:</label>
                 <div class="checkbox-group">
                     <label for="newsletter">
-                        <input type="checkbox" name="newsletter">Gostaria de assinar a newsletter
+                        <input type="checkbox" id="newsletter" name="newsletter">Gostaria de assinar a newsletter
                     </label>
                     <label for="updates">
-                        <input type="checkbox" name="updates">Gostaria de receber atualizações
+                        <input type="checkbox" id="updates" name="updates">Gostaria de receber atualizações
                     </label>
                 </div>
             </div>
 
             <div class="input-group">
                 <label for="resume">Carregar Currículo:</label>
-                <input type="file" name="resume">
+                <input type="file" id="resume" name="resume">
             </div>
 
             <div class="input-group">
