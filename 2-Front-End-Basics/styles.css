@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url("/MODULO2/aula1/assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(54, 54, 54);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cadastroUser {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente */
+  backdrop-filter: blur(10px); /* Efeito vidro fosco */
+  -webkit-backdrop-filter: blur(10px); /* Suporte Safari */
+  border-radius: 10px;
+}
+
+.cadastroUser input {
+  border: none;
+  width: 400px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 3px;
+  outline: none;
+}
+
+.cadastroUser input::placeholder {
+  opacity: 0.3;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cadastroUser button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+  height: 50px;
+  border: none;
+  background-color: #006ab6;
+  color: rgb(255, 255, 255);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  border-radius: 3px;
+}
+
+.cadastroUser button:hover {
+  background-color: #ff015b;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}

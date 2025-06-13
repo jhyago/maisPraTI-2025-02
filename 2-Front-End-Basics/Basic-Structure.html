@@ -1,157 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Desenvolvimento Web, HTML, CSS e JS">
-    <meta name="author" content="Batman">
-    <title>Primeira Aula</title>
-    <style>
-        a {
-            font-weight: bold;
-            color: green;
-            border: 1px solid;
-            text-decoration: none;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="desenvolvimento web, html, css, js" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>TableIt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,699;1,699&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-        a:hover {
-            background-color: blue;
-        }
+    <script src="/MODULO2/aula1/script.js"></script>
+  </head>
+  <body>
+    <section class="cadastroUser">
+      <form class="form" onsubmit="clicou(); return false;">
+        <label for="usuario">Usuário</label><br />
+        <input
+          type="text"
+          id="usuario"
+          name="login"
+          placeholder="Usuário"
+        /><br />
 
-        p {
-            background-color: #ccc;
-            color: #9f1cba;
-        }
-        
-        ul {
-            list-style: square;
-            border: 1px dashed;
-        }
+        <label for="senha">Senha</label><br />
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="Senha"
+        /><br />
 
-        ol {
-            list-style-type: decimal-leading-zero;
-        }
-
-        table {
-            border: 1px solid;
-        }
-
-        th, td {
-            border: 1px solid;
-        }
-
-        th {
-            background-color: aqua;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="home.html">Home</a>
-            <a href="home.html">Sobre mim</a>
-        </nav>
-
-        <h1>Aprendo HTML na +PraTI</h1>
-        <h2>Aprendo HTML na +PraTI</h2>
-        <h3>Aprendo HTML na +PraTI</h3>
-    </header>
-
-    <hr>
-
-    <section>
-        <p style="color: blue;">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <sup>lorem</sup>Molestiae quibusdam facere praesentium laboriosam non maxime possimus dolorem perferendis assumenda ipsum. Qui necessitatibus numquam eveniet et perferendis asperiores adipisci rem dolor?
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <code>&lt;header&gt;</code>Molestiae quibusdam facere praesentium laboriosam non maxime possimus dolorem perferendis assumenda ipsum. Qui necessitatibus numquam eveniet et perferendis asperiores adipisci rem dolor?
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <sub>Subscrito</sub>Molestiae quibusdam facere praesentium laboriosam non maxime possimus dolorem perferendis assumenda ipsum. Qui necessitatibus numquam eveniet et perferendis asperiores adipisci rem dolor?
-        </p>
+        <div class="btn">
+          <button onclick="registrar()" type="submit">Registrar</button>
+          <button onclick="logar()" type="submit">Entrar</button>
+        </div>
+      </form>
     </section>
 
-    <hr>
-
-    <section>
-        <p>Veja a Sigla: <abbr title="JavaScript Object Notation">JSON</abbr></p>
-        <blockquote cite="https://wikipedia.com">
-            A Web é construída por todos nós.
-        </blockquote>
-        <p>Como disse Camila Madureira: <q>Só sei que nada sei.</q></p>
-        <p>Salve o<strong>Tricolor</strong>Gaúcho</p>
-        <p>Porto Alegre é uma cidade que possuí duas equipes: Grêmio e <s>Inter</s> São José</p>
-        <p>Geralt de Rívia é um grande <em>Bruxo.</em></p>
-        <p>Homem-Aranha é o <u>amigo</u> da vizinhança</p>
-    </section>
-
-    <hr>
-
-    <section>
-        <h2>Menu Principal</h2>
-        <ul>
-            <li>Home</li>
-            <li>Contato</li>
-        </ul>
-
-        <h3>Perguntas frequentes:</h3>
-        <ol>
-            <li>O que faz o HTML?</li>
-            <li>Qual a função do Dev Frontend?</li>
-        </ol>
-    </section>
-
-    <hr>
-
-    <section>
-        <h2>Catálogo de Preços</h2>
-        <table>
-            <tr>
-                <th>Produto</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-            </tr>
-            <tr>
-                <td>Samsung Galaxy Pocket</td>
-                <td>Celular com tela OLED</td>
-                <td>R$ 60</td>
-            </tr>
-            <tr>
-                <td>TekPix</td>
-                <td>Câmera mais vendida do Brasil</td>
-                <td>R$ 160</td>
-            </tr>
-            <tr>
-                <td>Oba Phone</td>
-                <td>Endrew Indica</td>
-                <td>R$ 100</td>
-            </tr>
-            <tr>
-                <td colspan="3">Total: R$ 320</td>
-            </tr>
-        </table>
-    </section>
-
-    <hr>
-
-    <section>
-        <h2>Registro de Usuário</h2>
-        <form>
-            <label>Login:</label>
-            <input type="text">
-            <br>
-            <br>
-            <label>Senha:</label>
-            <input type="password">
-        </form>
-    </section>
-
-    <hr>
-
-    <footer>
-        <h2>Rodapé</h2>
-        &lt;Desenvolvendo para a Web&gt;
-        <p>Desenvolvido por Jaques &copy; 2025</p>
-    </footer>
-</body>
+    <!--<footer>
+      <h2>Rodapé</h2>
+      &lt;Desenvolvio para web&lt;
+      <p>Desenvolvido por Odranoel</p>
+    </footer>-->
+  </body>
 </html>

@@ -1,190 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aula 10 de Junho - Formulários</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e9f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        #form-container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 20px;
-            color: #444;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        input {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            margin-bottom: 5px;
-        }
-
-        .input-group .radio-group, .input.group .checkbox-group {
-            display: flex;
-            gap: 20px;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: white;
-            cursor: pointer;
-            border: none;
-            font-size: 18px;
-            padding: 10px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        input, select, textarea, button {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,699;1,699&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div id="form-container">
-        <h2>Formulário de Cadastro</h2>
-        <form>
-            <div class="input-group">
-                <label>Nome Completo:</label>
-                <input type="text">
-            </div>
-            
-            <div class="input-group">
-                <label>E-mail:</label>
-                <input type="email">
-            </div>
-            
-            <div class="input-group">
-                <label>Senha:</label>
-                <input type="password" placeholder="Digite sua senha">
-            </div>
-            
-            <div class="input-group">
-                <label>Telefone:</label>
-                <input type="tel" placeholder="Digite seu Telefone">
-            </div>
-        
-            <div class="input-group">
-                <label>Website:</label>
-                <input type="url">
-            </div>
-            
-            <div class="input-group">
-                <label>Data de Nascimento:</label>
-                <input type="date">
-            </div>
-            
-            <div class="input-group">
-                <label>Hora:</label>
-                <input type="time">
-            </div>
-            
-            <div class="input-group">
-                <label>Pesquisa:</label>
-                <input type="search">
-            </div>
-           
-            <div class="input-group">
-                <label>Quantidade:</label>
-                <input type="number">
-            </div>
+      <h2>Cadastro</h2>
+      <form>
+        <div class="input-group">
+          <label>Nome Completo:</label>
+          <input type="text" />
+        </div>
 
-            <div class="input-group">
-                <label>Gênero:</label>
-                <div class="radio-group">
-                    <label for="male">
-                        <input type="radio" value="male" name="gender">Masculino
-                    </label>
-                    <label for="female">
-                        <input type="radio" value="female" name="gender">Feminino
-                    </label>
-                    <label for="other">
-                        <input type="radio" value="other" name="gender">Outro
-                    </label>
-                </div>
-            </div>
+        <div class="input-group">
+          <label>E-mail:</label>
+          <input type="email" />
+        </div>
 
-            <div class="input-group">
-                <label>Preferências:</label>
-                <div class="checkbox-group">
-                    <label for="newsletter">
-                        <input type="checkbox" name="newsletter">Gostaria de assinar a newsletter
-                    </label>
-                    <label for="updates">
-                        <input type="checkbox" name="updates">Gostaria de receber atualizações
-                    </label>
-                </div>
-            </div>
+        <div class="input-group">
+          <label>Senha:</label>
+          <input type="password" placeholder="Digite sua senha" />
+        </div>
 
-            <div class="input-group">
-                <label for="resume">Carregar Currículo:</label>
-                <input type="file" name="resume">
-            </div>
+        <div class="input-group">
+          <label>Data de Nascimento:</label>
+          <input type="date" />
+        </div>
 
-            <div class="input-group">
-                <label for="city">Cidade:</label>
-                <select name="city">
-                    <option value="rs">Jaguarão</option>
-                    <option value="sp">Sorocaba</option>
-                    <option value="rj">Rio de Janeiro</option>
-                    <option value="rs">Tapes</option>
-                    <option value="pe">Olinda</option>
-                    <option value="rs">Parobé</option>
-                    <option value="rs">Bagé</option>
-                    <option value="pb">João Pessoa</option>
-                    <option value="ba">Salvador</option>
-                    <option value="ba">Xique-Xique</option>
-                </select>
-            </div>
+        <div class="input-group">
+          <label>Gênero:</label>
+          <div class="radio-group">
+            <label for="male">
+              <input type="radio" value="male" name="gender" />Masculino
+            </label>
+            <label for="female">
+              <input type="radio" value="female" name="gender" />Feminino
+            </label>
+            <label for="other">
+              <input type="radio" value="other" name="gender" />Outro
+            </label>
+          </div>
+        </div>
 
-            <div class="input-group">
-                <label for="message">Mensagem</label>
-                <textarea name="message" placeholder="Deixe sua mensagem"></textarea>
-            </div>
+        <div class="input-group">
+          <label for="resume">Carregar Currículo:</label>
+          <input type="file" name="resume" />
+        </div>
 
-            <button type="submit">Enviar</button>
-        </form>
-    </div>  
-</body>
+        <div class="input-group">
+          <label for="city">Cidade:</label>
+          <select name="city">
+            <option value="rs">Jaguarão</option>
+            <option value="sp">Sorocaba</option>
+            <option value="rj">Rio de Janeiro</option>
+            <option value="rs">Tapes</option>
+            <option value="pe">Olinda</option>
+            <option value="rs">Parobé</option>
+            <option value="rs">Bagé</option>
+            <option value="pb">João Pessoa</option>
+            <option value="ba">Salvador</option>
+            <option value="ba">Xique-Xique</option>
+          </select>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </body>
 </html>
