@@ -1,0 +1,79 @@
+h1 {
+    color: blue;
+    font-size: 32px;
+}
+
+/* p {
+    color: gray;
+    line-height: 1.5;
+} */
+
+.destaque {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+#cabecalho {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+ul li {
+    font-family: arial;
+}
+
+ul li.importante {
+    color: red;
+}
+
+a:hover {
+    text-decoration: none;
+    color: green;
+}
+
+body {
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+/* .diferente {
+    color: black !important;
+}
+
+#unico {
+    color: navy;
+} */
+
+/* 
+    Seletor inline: 1000
+    Seletor de ID: 100
+    Seletor de Class: 10
+    Seletor de Tipo: 1
+*/
+
+div {
+    color: blue;
+    margin: 10px;
+    border: 1px solid red;
+}
+
+div p {
+    border: inherit;
+}
+
+h1 + p {
+    color: green;
+}
+
+h1 ~ p {
+    font-style: italic;
+}
+
+h2 > a {
+    color: green;
+}
