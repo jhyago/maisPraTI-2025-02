@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model - Dimensões</title>
+    <style>
+
+        html {
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+
+        div {
+            border: 1px solid black;
+        }
+
+        h2 {
+            border: inherit;
+            width: 200px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+
+        div.dimensions {
+            font-size: 12px;
+        }
+
+        div.dimensions h2 {
+            border: inherit;
+            height: 20pc;
+            font-size: 2vmin;
+            width: 50%;
+            /* min-width: 200px; */
+            height: 100vmax;
+        }
+
+        /* largura total = width + padding * 2 + border * 2 */
+        /* altura total = height + padding * 2 + border * 2 */
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Conteúdo</h2>
+    </div>
+
+    <div class="dimensions">
+        <h2>Conteúdo</h2>
+    </div>
+</body>
+</html>
