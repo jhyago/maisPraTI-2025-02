@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: radial-gradient(circle, #371180, #3b1199, #3d11b4, #3c11cf, #3812eb);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#form-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px 50px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 25px;
+    color: #444;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+}
+
+.input-group .radio-group, .input.group .checkbox-group {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    background-color: #00c37a;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    margin: 0 auto; 
+}
+
+button:hover {
+    background-color: #00c37ced;
+}
+
+input, select, textarea, button {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.10);
+}
