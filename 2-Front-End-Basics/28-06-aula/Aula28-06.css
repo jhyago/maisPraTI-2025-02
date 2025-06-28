@@ -1,0 +1,58 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2rem
+}
+
+.container { 
+    width:90%;
+    border: 1px solid blue;
+    padding: 20px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.item {
+    background-color: #10316f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+img {
+    max-width: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .item {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+
+}
+
+@media (min-width: 1280px) and (max-width: 1440px) {
+    
+}
