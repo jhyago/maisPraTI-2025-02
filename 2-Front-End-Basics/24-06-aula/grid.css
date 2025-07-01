@@ -6,7 +6,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         "header header header"
         "sidebar main main"
         "footer footer footer"
@@ -66,4 +66,16 @@ footer {
     grid-area: footer;
     text-align: center;
     padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+
+        grid-template-columns: 1fr;
+    }
 }
