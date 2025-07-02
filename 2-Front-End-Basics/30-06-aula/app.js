@@ -2,6 +2,8 @@ const formAdicionar = document.getElementById('form-adicionar')
 const inputItem = document.getElementById('input-item')
 const listaItens = document.getElementById('lista-itens')
 const btnLimpar = document.getElementById('btn-limpar')
+const checkboxComprar = document.getElementsByClassName('checkbox-comprar')
+const contadorItens = document.getElementById('contador-itens')
 
 let itens = []
 
@@ -19,11 +21,24 @@ function salvarDados() {
 
 function renderizarLista() {
     listaItens.innerHTML = ''
-    itens.forEach((item, index) => {
+    itens.forEach((item, index) => {        
         const li = document.createElement('li')
 
         const span = document.createElement('span')
-        span.textContent = item
+        span.textContent = item.nome
+        span.style.textDecoration = item.comprado ? 'line-through' : 'none'
+
+        const checkbox = document.createElement('input')
+        checkbox.type = 'checkbox'
+        checkbox.setAttribute('class', 'checkbox-comprar')
+        checkbox.setAttribute('name', 'comprado')
+        checkbox.checked = item.comprado
+        checkbox.addEventListener('change', () => {
+            itens[index].comprado = checkbox.checked
+            salvarDados()
+            console.log(`Item "${item.nome}" foi marcado: ${checkbox.checked}`)
+            span.style.textDecoration = item.comprado ? 'line-through' : 'none'
+        })
 
         const btnRemover = document.createElement('button')
         btnRemover.textContent = 'X'
@@ -33,9 +48,10 @@ function renderizarLista() {
             removerItem(index)
         })
 
-        li.append(span, btnRemover)
+        li.append(checkbox, span, btnRemover)
         listaItens.appendChild(li)
     })
+    contarItens(itens)
 }
 
 formAdicionar.addEventListener('submit', (event) => {
@@ -43,7 +59,7 @@ formAdicionar.addEventListener('submit', (event) => {
     const novoItem = inputItem.value.trim()
     if(!novoItem) return
 
-    itens.push(novoItem)
+    itens.push({ nome: novoItem, comprado: false })
     salvarDados()
     renderizarLista()
 
@@ -63,6 +79,10 @@ btnLimpar.addEventListener('click', () => {
         renderizarLista()
     }
 })
+
+function contarItens(lista) {
+    contadorItens.textContent = `Total de itens: ${lista.length}`
+}
 
 // Funcionalidades:
 
