@@ -5,8 +5,8 @@ const btnLimpar = document.getElementById('btn-limpar')
 const filtroStatus = document.getElementById('filtro-status')
 const ordenar = document.getElementById('ordenar')
 const contadorTotal = document.getElementById('contador-total')
-const contadorPendente = document.getElementById('contador-pendente')
-const contadorComprado = document.getElementById('contador-comprado')
+const contadorPendente = document.getElementById('contador-pendentes')
+const contadorComprado = document.getElementById('contador-comprados')
 
 let itens = []
 
@@ -41,7 +41,7 @@ function renderizarLista() {
         const li = document.createElement('li')
 
         const span = document.createElement('span')
-        span.textContent = item
+        span.textContent = item.text
 
         const btnToggle = document.createElement('button')
         btnToggle.textContent = item.purchased ? 'Marcar Pendente' : 'Marcar Comprado'
@@ -77,7 +77,10 @@ formAdicionar.addEventListener('submit', (event) => {
     const novoItem = inputItem.value.trim()
     if(!novoItem) return
 
-    itens.push(novoItem)
+    itens.push({
+        text: novoItem,
+        purchased: false
+    })
     salvarDados()
     renderizarLista()
 
