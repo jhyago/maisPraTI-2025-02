@@ -5,8 +5,8 @@ const btnLimpar = document.getElementById('btn-limpar')
 const filtroStatus = document.getElementById('filtro-status')
 const ordenar = document.getElementById('ordenar')
 const contadorTotal = document.getElementById('contador-total')
-const contadorPendente = document.getElementById('contador-pendente')
-const contadorComprado = document.getElementById('contador-comprado')
+const contadorPendente = document.getElementById('contador-pendentes')
+const contadorComprado = document.getElementById('contador-comprados')
 
 let itens = []
 
@@ -30,7 +30,7 @@ function renderizarLista() {
     if(status === 'purchased') exibicao = exibicao.filter(i => i.purchased)
 
     if(ordenar.value === 'alphabetical') {
-        exibicao.sort((a, b) => a.text.localeCompare(b.text))
+        exibicao.sort((a, b) => a.value.localeCompare(b.value))
     } else if(ordenar.value === 'status') {
         exibicao.sort((a, b) => a.purchased - b.purchased)
     }
@@ -39,9 +39,8 @@ function renderizarLista() {
     exibicao.forEach((item, index) => {
         
         const li = document.createElement('li')
-
         const span = document.createElement('span')
-        span.textContent = item
+        span.textContent = item.value
 
         const btnToggle = document.createElement('button')
         btnToggle.textContent = item.purchased ? 'Marcar Pendente' : 'Marcar Comprado'
@@ -74,7 +73,11 @@ ordenar.addEventListener('change', renderizarLista)
 
 formAdicionar.addEventListener('submit', (event) => {
     event.preventDefault()
-    const novoItem = inputItem.value.trim()
+    const novoItem = {
+        "value" : inputItem.value.trim(),
+        "purchased" : false
+    }
+
     if(!novoItem) return
 
     itens.push(novoItem)
