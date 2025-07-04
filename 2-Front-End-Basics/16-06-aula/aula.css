@@ -1,14 +1,14 @@
-h1 {
+/* h1 {
     color: blue;
     font-size: 32px;
-}
+} */
 
 /* p {
     color: gray;
     line-height: 1.5;
 } */
 
-.destaque {
+/* .destaque {
     background-color: yellow;
     font-weight: bold;
 }
@@ -39,7 +39,7 @@ body {
 
 h1, h2, h3 {
     text-align: center;
-}
+} */
 
 /* .diferente {
     color: black !important;
@@ -56,7 +56,7 @@ h1, h2, h3 {
     Seletor de Tipo: 1
 */
 
-div {
+/* div {
     color: blue;
     margin: 10px;
     border: 1px solid red;
@@ -76,4 +76,123 @@ h1 ~ p {
 
 h2 > a {
     color: green;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-image: url("./src/assets/fifa.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.layout-container {
+    display: flex;
+    min-height: 100vh;
+    width: 1280px;
+    margin: auto;
+}
+
+main {
+    padding: 24px;
+    width: 100%;
+    background-color: #111;
+}
+
+aside {
+    width: 40%;
+    background-color: rgb(200, 161, 92);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+aside a, h2 {
+    color: #eee;
+}
+
+.cards {
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: 0.5s;
+}
+
+.cards img {
+    width: 150px;
+}
+
+.cards:hover {
+    background-color: #111;
+    transition: 0.5s;
+    transform: scale(1.1)
+}
+
+header {
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: rgb(200, 161, 92);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.main-table {
+    width: 100%;
+    margin-top: 24px;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+.main-table caption {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 12px 0;
+    background-color: rgb(200, 161, 92);
+    color: #fff;
+}
+
+.main-table thead {
+    background-color: rgb(51, 51, 51);
+}
+
+.main-table th, .main-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-table tr:hover {
+    background-color: rgb(200, 161, 92);
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
+.main-table th {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.main-table td {
+    font-size: 1rem;
 }
