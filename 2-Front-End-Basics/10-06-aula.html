@@ -5,186 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 10 de Junho - Formulários</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e9f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
 
-        #form-container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-        h2 {
-            text-align: center;
-            font-size: 20px;
-            color: #444;
-            margin-bottom: 20px;
-        }
+    <!--link style-->
+    <link rel="stylesheet" href="./styless.css">
 
-        label {
-            display: block;
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        input {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            margin-bottom: 5px;
-        }
-
-        .input-group .radio-group, .input.group .checkbox-group {
-            display: flex;
-            gap: 20px;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: white;
-            cursor: pointer;
-            border: none;
-            font-size: 18px;
-            padding: 10px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        input, select, textarea, button {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
-    <div id="form-container">
-        <h2>Formulário de Cadastro</h2>
-        <form>
-            <div class="input-group">
-                <label>Nome Completo:</label>
-                <input type="text">
-            </div>
-            
-            <div class="input-group">
-                <label>E-mail:</label>
-                <input type="email">
-            </div>
-            
-            <div class="input-group">
-                <label>Senha:</label>
-                <input type="password" placeholder="Digite sua senha">
-            </div>
-            
-            <div class="input-group">
-                <label>Telefone:</label>
-                <input type="tel" placeholder="Digite seu Telefone">
-            </div>
-        
-            <div class="input-group">
-                <label>Website:</label>
-                <input type="url">
-            </div>
-            
-            <div class="input-group">
-                <label>Data de Nascimento:</label>
-                <input type="date">
-            </div>
-            
-            <div class="input-group">
-                <label>Hora:</label>
-                <input type="time">
-            </div>
-            
-            <div class="input-group">
-                <label>Pesquisa:</label>
-                <input type="search">
-            </div>
-           
-            <div class="input-group">
-                <label>Quantidade:</label>
-                <input type="number">
-            </div>
+    <div class="mainContainer">
 
-            <div class="input-group">
-                <label>Gênero:</label>
-                <div class="radio-group">
-                    <label for="male">
-                        <input type="radio" value="male" name="gender">Masculino
-                    </label>
-                    <label for="female">
-                        <input type="radio" value="female" name="gender">Feminino
-                    </label>
-                    <label for="other">
-                        <input type="radio" value="other" name="gender">Outro
-                    </label>
+    <section class="sectionHero">
+        <div>
+            <h1>Authentic</h1>
+            <h2>Next course will be open in Summer 2025.</h2>
+        </div>
+
+        <div>
+            <p>Applications will be reviewed before the next admission test in 21 of October 2025.</p>
+            <p>Check your mailbox after your register for more information on the test and documentation.</p>
+        </div>
+
+        <div>
+            <p><span>Good Luck!</span></p>
+            <p>__ Authentic team.</p>
+        </div>
+
+        <div>
+            <p><a href="./exercicio2/home.html">Learn more about the Courses</a></p>
+        </div>
+    </section>
+
+    <section class="formContainer">
+        <div>
+            <form>
+                <div class="titleForm">
+                    <div class="colorBox"></div>
+                    <h1>Join the Academy</h1>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <label>Preferências:</label>
-                <div class="checkbox-group">
-                    <label for="newsletter">
-                        <input type="checkbox" name="newsletter">Gostaria de assinar a newsletter
-                    </label>
-                    <label for="updates">
-                        <input type="checkbox" name="updates">Gostaria de receber atualizações
-                    </label>
+                <div class="formName">
+                    <div>
+                        <label for="name">First Name</label>
+                        <label for="lastName">Last Name</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Hello...">
+                        <input type="text" placeholder="You are?">
+                    </div>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <label for="resume">Carregar Currículo:</label>
-                <input type="file" name="resume">
-            </div>
+                <label for="email">Email</label>
+                <input type="email" placeholder="your@email.com">
 
-            <div class="input-group">
-                <label for="city">Cidade:</label>
-                <select name="city">
-                    <option value="rs">Jaguarão</option>
-                    <option value="sp">Sorocaba</option>
-                    <option value="rj">Rio de Janeiro</option>
-                    <option value="rs">Tapes</option>
-                    <option value="pe">Olinda</option>
-                    <option value="rs">Parobé</option>
-                    <option value="rs">Bagé</option>
-                    <option value="pb">João Pessoa</option>
-                    <option value="ba">Salvador</option>
-                    <option value="ba">Xique-Xique</option>
-                </select>
-            </div>
+                <label for="password">PassWord</label>
+                <input type="password" placeholder="Coolest password possible here">
 
-            <div class="input-group">
-                <label for="message">Mensagem</label>
-                <textarea name="message" placeholder="Deixe sua mensagem"></textarea>
-            </div>
+                
+                <label for="course" class="labelDesiredCourse">Desired Course</label>
+                <div class="desiredCourse">
+                    <div class="frontEnd course">
+                        <p>FrontEnd</p>
+                        <input type="radio" id="frontend" name="course" value="frontend">
+                    </div>
 
-            <button type="submit">Enviar</button>
-        </form>
-    </div>  
+                    <div class="design course">
+                        <p>Design</p>
+                        <input type="radio" id="design" name="course" value="design">
+                    </div>
+
+                    <div class="backEnd course">
+                        <p>Backend</p>
+                        <input type="radio" id="backend" name="course" value="backend">
+                    </div>
+                </div>
+
+                <button>Submit</button>
+            </form>
+        </div>
+    </section>
+
+    </div>
 </body>
 </html>
