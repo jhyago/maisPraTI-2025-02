@@ -121,6 +121,12 @@ nav li +li {
     border-radius: 4px;
 }
 
+.error-msg { 
+    color: #e74c3c;
+    font-size: 0.8rem;
+    height: 1em;
+}
+
 .btn {
     display: inline-block;
     background: #333;
