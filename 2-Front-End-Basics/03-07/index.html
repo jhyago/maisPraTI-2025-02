@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Interativo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <!-- <a href="#" class="logo">Marca</a> -->
+            <button id="navToggle" class="nav-toggle" aria-label="Abrir Menu">+</button>
+            <nav id="navMenu" class="nav">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Bem-vindo ao nosso site!</h1>
+            <p>Oferecems soluções na área de tecnologia.</p>
+            <a href="" class="btn">Fale Conosco</a>
+        </div>
+    </section>
+
+    <section id="services" class="services container">
+        <h2>Nossos Serviços</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Desenvolvimento Back-end</h3>
+                <p>APIs seguras e performance otimizada.</p>
+            </div>
+            <div class="card">
+                <h3>Desenvolvimento Front-end</h3>
+                <p>Interfaces amigáveis e responsivas.</p>
+            </div>
+            <div class="card">
+                <h3>Consultoria</h3>
+                <p>Planejamento e Arquitetura de Projetos</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact container">
+        <h2>Contato</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Sua mensagem</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Enviar Mensagem</button>
+        </form>
+    </section>  
+
+    <footer class="footer">
+        <div class="container">
+            <p>2025 Nome da Marca. Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
