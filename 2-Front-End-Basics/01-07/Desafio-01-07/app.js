@@ -8,6 +8,10 @@ const contadorTotal = document.getElementById('contador-total')
 const contadorPendente = document.getElementById('contador-pendente')
 const contadorComprado = document.getElementById('contador-comprado')
 
+function NovoItem(descricao,purchased){
+this.descricao = descricao;
+this.purchased = purchased;
+}
 let itens = []
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -30,7 +34,7 @@ function renderizarLista() {
     if(status === 'purchased') exibicao = exibicao.filter(i => i.purchased)
 
     if(ordenar.value === 'alphabetical') {
-        exibicao.sort((a, b) => a.text.localeCompare(b.text))
+         exibicao.sort((a, b) => a.descricao.localeCompare(b.descricao))
     } else if(ordenar.value === 'status') {
         exibicao.sort((a, b) => a.purchased - b.purchased)
     }
@@ -41,12 +45,21 @@ function renderizarLista() {
         const li = document.createElement('li')
 
         const span = document.createElement('span')
-        span.textContent = item
+        span.textContent = item.descricao
 
         const btnToggle = document.createElement('button')
-        btnToggle.textContent = item.purchased ? 'Marcar Pendente' : 'Marcar Comprado'
+        btnToggle.textContent = item.purchased ? 'Comprado' : 'Pendente'
         btnToggle.addEventListener('click', () => {
             item.purchased = !item.purchased
+            if(item.purchased){
+        
+             btnToggle.textContent = 'Comprado'
+        
+            }else{
+             btnToggle.textContent = 'Pendente'
+           
+         }
+           
             salvarDados()
             renderizarLista()
         })
@@ -65,8 +78,8 @@ function renderizarLista() {
     })
 
     contadorTotal.textContent = `Total: ${itens.length}`
-    contadorPendente.textContent = `Pendentes: ${itens.filter(i => !i.purchased).length}`
-    contadorComprado.textContent = `Comprados: ${itens.filter(i => i.purchased).length}`
+    contadorPendente.textContent = `Pendentes: ${itens.filter(i=> !i.purchased).length}`
+    contadorComprado.textContent = `Comprados: ${itens.filter(i=> i.purchased).length}`
 }
 
 filtroStatus.addEventListener('change', renderizarLista)
@@ -74,7 +87,8 @@ ordenar.addEventListener('change', renderizarLista)
 
 formAdicionar.addEventListener('submit', (event) => {
     event.preventDefault()
-    const novoItem = inputItem.value.trim()
+     const novoItem = new NovoItem(inputItem.value.trim(),false)
+
     if(!novoItem) return
 
     itens.push(novoItem)
