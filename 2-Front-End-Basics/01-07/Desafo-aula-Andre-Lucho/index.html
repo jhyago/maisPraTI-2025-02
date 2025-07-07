@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lista de Compras</h1>
+
+      <form id="form-adicionar">
+        <input type="text" id="input-item" placeholder="Adicione um item..." />
+        <button type="submit">Adicionar</button>
+      </form>
+
+      <div class="controles">
+        <select id="filtro-status">
+          <option value="all" class="active">Todos</option>
+          <option value="pending">Pendentes</option>
+          <option value="purchased">Comprados</option>
+        </select>
+
+        <select id="ordenar">
+          <option value="default">Ordem Origial</option>
+          <option value="alphabetical">Ordem Alfabética</option>
+          <option value="status">Por Status</option>
+        </select>
+      </div>
+
+      <ul id="lista-itens"></ul>
+      <div class="contador-div">
+        <span class="contado-item contador-total">Total: 0</span>
+        <span class="contado-item contador-pendentes">Pendentes: 0</span>
+        <span class="contado-item contador-comprados">Comprados: 0</span>
+      </div>
+      <button class="limpar" id="btn-limpar">Limpar Lista</button>
+    </div>
+  </body>
+</html>
