@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --ff-title: "Jaro", sans-serif;
+    --ff-body: "Roboto", sans-serif; 
+
+    --clr-background: #2D2D2D;
+    --clr-secondary: #A2A2A2;
+    --clr-gradient1: #fe53c5;
+    --clr-gradient2: #1619ce;
+    --clr-font: #D9D9D9;
+
+    --clr-title-gradient: linear-gradient(90deg,rgba(254, 83, 197, 1) 0%, rgba(22, 25, 206, 1) 100%);
+}
+body{
+    background-color: var(--clr-background);
+    color: var(--clr-font);
+    font-family: var(--ff-body);
+    width: 100vw;
+    user-select: none;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr) 2fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 20px; 
+}
+
+header{
+    background-color: var(--clr-secondary);
+    font-size: 1.5rem;
+    width: 720px;
+    height: 60px;
+
+    margin-top: 30px;
+    margin-left: 45px;
+    
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    grid-area: 1 / 2 / 2 / 5; 
+}
+/*HEADER*/
+header ul{
+    display: flex;
+    gap: 90px;
+    list-style: none;
+}
+
+a{
+    color: var(--clr-font);
+    text-decoration: none;
+}
+
+/* -------------------------- */
+section{
+    grid-area: 2 / 2 / 6 / 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.titleContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleContainer h1{
+    font-family: var(--ff-title);
+    
+    background-image: var(--clr-title-gradient);
+    background-size: 100%;
+    background-clip: text;
+    color: transparent;
+
+    font-size: 15.625rem;
+}
+
+.titleContainer h2{
+    font-size: 1.4rem;
+    align-items: center;
+    margin-top: -50px;
+}
+
+.h3Container{
+    margin-top: 100px;
+}
+
+.h3Container h3{
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+.h3Container h3 span{
+    font-weight: bold;
+}
+
+
+/* ----------------------------- */
+/* Enroll a link - BTN */
+.enrollContainer{
+    margin-top: 80px;
+    padding: 20px;
+    width: 300px;
+    font-weight: bold;
+    font-size: 2rem;
+    
+    border-radius: 50px;
+    background: var(--clr-title-gradient);
+    box-shadow: 2px 2px 50px var(--clr-gradient1);  
+
+    display: flex;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.enrollContainer:hover{
+    opacity: 0.9;
+    box-shadow: 4px 4px 50px var(--clr-gradient2);
+}
+
+.enrollContainer:active{
+    border: 2px solid white;
+}
