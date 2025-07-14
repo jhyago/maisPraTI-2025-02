@@ -6,27 +6,35 @@
     <title>Aula 10 de Junho - Formulários</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e9f4f9;
-            margin: 0;
-            padding: 0;
+
+        * {
+            box-sizing: border-box;
+        }
+
+       body {
+            font-family: Montserrat;
+            background-color: orange;
+            margin: 10px;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            /* align-items: center; */
+            min-height: 100vh;
+            overflow-y: auto;
         }
 
         #form-container {
-            background-color: white;
+            background-color: rgb(172, 207, 172);
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 40px;
+            width: 100%;
+            max-width: 500px;
         }
 
         h2 {
             text-align: center;
-            font-size: 20px;
+            font-size: 31px;
             color: #444;
             margin-bottom: 20px;
         }
@@ -38,47 +46,42 @@
             color: #555;
         }
 
-        input {
+        input,
+        select,
+        textarea,
+        button {
             padding: 10px;
             font-size: 16px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            width: 100%;
         }
 
         .input-group {
             margin-bottom: 15px;
         }
 
-        .input-group label {
-            margin-bottom: 5px;
-        }
-
-        .input-group .radio-group, .input.group .checkbox-group {
+        .radio-group,
+        .checkbox-group {
             display: flex;
             gap: 20px;
         }
 
         button {
-            background-color: #4caf50;
+            background-color: #2c5a2d;
             color: white;
             cursor: pointer;
             border: none;
             font-size: 18px;
             padding: 10px;
+            width: 100%;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #2c4a1d;
         }
 
-        input, select, textarea, button {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
