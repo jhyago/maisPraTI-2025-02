@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"> <!-- Usa UTF‑8 para suportar todos os caracteres do português -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante responsividade em telas móveis -->
+  <title>Assincronismo em JavaScript – Promise, Fetch & Async/Await</title>
+  <style>
+    /* ======================================
+       RESET BÁSICO
+       ----------------
+       Remove margens/paddings padrão e padroniza box-sizing para evitar surpresas no layout
+       ====================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* ======================================
+       ESTILOS GERAIS
+       ----------------
+       Define fonte, cores e espaçamento da página
+       ====================================== */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1 { text-align: center; margin-bottom: 1.5rem; }
+    section {
+      background: #fff;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    section h2 { margin-bottom: 0.5rem; color: #007acc; font-size: 1.2rem; }
+    button {
+      padding: 0.5rem 1rem; margin-top: 0.5rem;
+      background: #007acc; color: #fff; border: none; border-radius: 4px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    button:hover, button:focus { background: #005fa3; }
+    pre {
+      background: #272822; color: #f8f8f2;
+      padding: 1rem; border-radius: 4px; overflow-x: auto;
+      margin-top: 0.5rem; font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Assincronismo em JavaScript</h1>
+
+  <!-- ======================================
+       EXEMPLO 1: SIMULAÇÃO DE PROMISE
+       ----------------
+       Uma Promise representa um valor que pode estar disponível agora, no futuro ou nunca.
+       Estados de uma Promise:
+       • pending (pendente) — operação em andamento
+       • fulfilled (cumprida) — operação completou com sucesso → dispara .then()
+       • rejected (rejeitada) — operação falhou → dispara .catch()
+       ====================================== -->
+  <section>
+    <h2>1. Simulação de Promise</h2>
+    <button id="btnPromise">Executar Promise</button>
+    <pre id="outPromise">// Clique para iniciar</pre>
+  </section>
+
+  <!-- ======================================
+       EXEMPLO 2: FETCH COM .then()/catch()
+       ----------------
+       fetch() retorna uma Promise que resolve com um objeto Response.
+       Podemos encadear then() para processar dados e catch() para erros.
+       ====================================== -->
+  <section>
+    <h2>2. Fetch usando <code>.then()</code></h2>
+    <button id="btnFetchThen">Iniciar Fetch (.then)</button>
+    <pre id="outFetchThen">// Clique para buscar via .then()</pre>
+  </section>
+
+  <!-- ======================================
+       EXEMPLO 3: FETCH COM ASYNC/AWAIT
+       ----------------
+       async/await é sintaxe açucarada sobre Promises.
+       Uma função async retorna sempre uma Promise.
+       await faz a execução “pausar” até a Promise resolver/rejeitar.
+       ====================================== -->
+  <section>
+    <h2>3. Fetch usando <code>async/await</code></h2>
+    <button id="btnFetchAsync">Iniciar Fetch (async/await)</button>
+    <pre id="outFetchAsync">// Clique para buscar via async/await</pre>
+  </section>
+
+  <script>
+    // API pública do ViaCEP para demonstração
+    const CEP_URL = 'https://viacep.com.br/ws/01001000/json/';
+
+    /**
+     * simulatePromise(valor, ms)
+     * @param {*} valor — conteúdo para resolver ou falsy para rejeitar
+     * @param {number} ms — tempo de delay em milissegundos
+     * @returns {Promise<string>} — resolve ou rejeita após ms
+     */
+    function simulatePromise(valor, ms) {
+      return new Promise((resolve, reject) => {
+        // setTimeout simula operação assíncrona (ex: leitura de arquivo ou consulta em DB)
+        setTimeout(() => {
+          if (valor) {
+            // resolve dispara callbacks em .then()
+            resolve('✅ Sucesso: ' + valor);
+          } else {
+            // reject dispara callbacks em .catch()
+            reject('🚫 Erro: valor inválido');
+          }
+        }, ms);
+      });
+    }
+
+    // Ao clicar, executa simulatePromise e demonstra .then() e .catch()
+    document.getElementById('btnPromise').addEventListener('click', () => {
+      const out = document.getElementById('outPromise');
+      out.textContent = '⏳ Executando simulatePromise...';
+
+      simulatePromise('Olá, Mundo!', 2000)
+        .then(resultado => {
+          // É chamado quando resolve() é executado
+          out.textContent = resultado;
+        })
+        .catch(erro => {
+          // É chamado quando reject() é executado ou erro ocorre dentro do executor
+          out.textContent = erro;
+        });
+    });
+
+    // Exemplo de fetch com then/catch — método tradicional de lidar com Promises
+    document.getElementById('btnFetchThen').addEventListener('click', () => {
+      const out = document.getElementById('outFetchThen');
+      out.textContent = '⏳ Buscando via fetch .then()...';
+
+      fetch(CEP_URL) // retorna Promise<Response>
+        .then(response => {
+          // response.ok indica status HTTP 200–299
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.json(); // retorna Promise<object>
+        })
+        .then(data => {
+          // data é o JSON parseado
+          out.textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          // Captura erros de rede, parsing ou lançados acima
+          out.textContent = '🚫 ' + error;
+        });
+    });
+
+    // Exemplo de fetch com async/await — sintaxe mais linear e clara
+    document.getElementById('btnFetchAsync').addEventListener('click', async () => {
+      const out = document.getElementById('outFetchAsync');
+      out.textContent = '⏳ Buscando via async/await...';
+
+      try {
+        // await faz a função esperar a Promise do fetch resolver ou rejeitar
+        const response = await fetch(CEP_URL);
+        if (!response.ok) {
+          // lançar erro faz pular diretamente para catch
+          throw new Error('HTTP ' + response.status);
+        }
+        // await também espera a conversão para JSON
+        const data = await response.json();
+        out.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        // Captura qualquer erro de rede, HTTP ou parsing
+        out.textContent = '🚫 ' + error;
+      }
+    });
+  </script>
+</body>
+</html>

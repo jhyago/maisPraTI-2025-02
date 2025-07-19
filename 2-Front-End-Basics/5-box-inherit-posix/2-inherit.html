@@ -1,0 +1,50 @@
+<!DOCTYPE html> <!-- Declara que este documento usa HTML5 -->
+<html lang="en"> <!-- Elemento raiz <html>, atributo lang define o idioma como inglês -->
+
+<head> <!-- Início do cabeçalho: metadados e links externos -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF‑8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta viewport para responsividade em dispositivos móveis -->
+    <title>Herança e Relacionamentos no CSS</title> <!-- Título que aparece na aba do navegador -->
+    <link rel="stylesheet" href="heritage.css"> <!-- Importa o arquivo de estilos externo inherit.css -->
+</head> <!-- Fim do head -->
+
+<body> <!-- Início do corpo: conteúdo visível da página -->
+
+    <div class="pai"> <!-- Container com classe "pai" para demonstração de herança de estilos -->
+        <p>Jaques Antunes</p> <!-- Parágrafo filho dentro de .pai; herda estilos do pai -->
+    </div> <!-- Fim do container .pai -->
+
+    <article> <!-- Elemento semântico <article> para agrupar conteúdo principal de artigo -->
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, excepturi harum molestiae nemo exercitationem delectus possimus officiis rerum repudiandae obcaecati maxime impedit, quasi animi voluptatibus quibusdam nobis ratione voluptas sed!</p>
+        <!-- Primeiro parágrafo do artigo -->
+
+        <h1>Título do Documento</h1> <!-- Cabeçalho principal dentro do artigo -->
+
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad suscipit harum est! Atque a facilis ipsum magnam illum, ipsa porro maiores voluptate accusamus provident architecto omnis. Quasi molestiae aliquid ipsum!
+        </p>
+        <!-- Segundo parágrafo do artigo -->
+
+        <a href="#">Link principal</a> <!-- Link de navegação interno ou placeholder -->
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum quibusdam fugit quas ipsam beatae illo maxime libero, veritatis ab placeat voluptatem magnam eaque nostrum laudantium asperiores consequatur aspernatur quae. Alias.
+        </p>
+        <!-- Terceiro parágrafo do artigo -->
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quos obcaecati pariatur accusamus? Quasi necessitatibus illo, commodi voluptas quibusdam nemo atque nostrum facere, ipsam veniam corporis libero neque! Id, aperiam.
+            <a href="#">Outro Link</a> <!-- Link adicional dentro de parágrafo -->
+        </p>
+        <!-- Quarto parágrafo do artigo com link aninhado -->
+    </article> <!-- Fim do artigo -->
+
+    <h1>Teste</h1> <!-- Cabeçalho de nível 1 fora do artículo para demonstrar herança/reset de estilos -->
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, neque ipsam. Officiis a quas, nemo ipsum consequatur aperiam obcaecati voluptate eveniet, nostrum vitae debitis porro fuga! Molestiae illum atque nemo?</p>
+    <!-- Parágrafo fora do artigo para comparar estilos com os de dentro -->
+
+</body> <!-- Fim do corpo da página -->
+
+</html> <!-- Fim do documento HTML -->

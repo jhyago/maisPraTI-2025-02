@@ -1,0 +1,94 @@
+/* Define estilos para o elemento <body> */
+body {
+    margin: 0;                          /* Remove margens padrão do navegador */
+    background-color: #f5f5f5;          /* Define a cor de fundo da página */
+    color: #333;                        /* Define a cor padrão do texto */
+    display: flex;                      /* Usa Flexbox para layout principal */
+}
+
+/* Define estilos para a barra lateral <aside> */
+aside {
+    width: 200px;                       /* Largura fixa de 200px */
+    background-color: #2c3e50;         /* Fundo escuro */
+    color: white;                       /* Texto em branco */
+    padding: 20px;                      /* Espaçamento interno de 20px */
+    height: 100vh;                      /* Altura igual à altura da janela de visualização */
+}
+
+/* Estilo para o título dentro do <aside> */
+aside h2 {
+    font-size: 20px;                    /* Tamanho da fonte de 20px */
+    border-bottom: 1px solid #34495e;   /* Linha inferior para separar visualmente */
+    padding-bottom: 10px;               /* Espaço abaixo do texto antes da borda */
+}
+
+/* Remove marcadores e padding padrão da lista dentro do <aside> */
+aside ul {
+    list-style: none;                   /* Remove bullets */
+    padding: 0;                         /* Remove padding padrão */
+}
+
+/* Espaçamento entre itens da lista no <aside> */
+aside ul li {
+    margin: 15px 0;                     /* 15px de margem acima e abaixo de cada <li> */
+}
+
+/* Define estilos para o conteúdo principal <main> */
+main {
+    flex: 1;                            /* Faz com que o main ocupe o espaço restante */
+    padding: 30px;                      /* Espaçamento interno de 30px */
+}
+
+/* Remove margem superior padrão de todos os <h1> */
+h1 {
+    margin-top: 0;                      /* Elimina a margem superior */
+}
+
+/* Estilo para tabelas gerais */
+table {
+    width: 100%;                        /* Largura total do container pai */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Sombra suave em torno da tabela */
+    border-radius: 6px;                 /* Cantos arredondados */
+}
+
+/* Cabeçalho da tabela */
+thead {
+    background-color: #2980b9;          /* Fundo azul escuro */
+    color: white;                       /* Texto em branco */
+}
+
+/* Células do cabeçalho */
+thead th {
+    text-align: left;                   /* Alinha texto à esquerda */
+    padding: 12px;                      /* Espaçamento interno de 12px */
+    font-size: 16px;                    /* Tamanho da fonte */
+}
+
+/* Células de dados da tabela */
+tbody td {
+    padding: 12px;                      /* Espaçamento interno de 12px */
+    border-bottom: 1px solid #ddd;      /* Linha inferior sutil para separar as linhas */
+}
+
+/* Efeito hover nas linhas da tabela */
+tbody tr:hover {
+    background-color: #2980b9;          /* Muda fundo ao passar o mouse */
+}
+
+/* Estilo para itens com status OK */
+.status-ok {
+    color: green;                       /* Texto verde */
+    font-weight: bold;                  /* Texto em negrito */
+}
+
+/* Estilo para itens com status pendente */
+.status-pending {
+    color: orange;                      /* Texto laranja */
+    font-weight: bold;                  /* Texto em negrito */
+}
+
+/* Estilo para itens com status cancelado */
+.status-cancelado {
+    color: red;                         /* Texto vermelho */
+    font-weight: bold;                  /* Texto em negrito */
+}

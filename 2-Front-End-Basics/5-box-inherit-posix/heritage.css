@@ -1,0 +1,38 @@
+/* Define a cor de fundo de todo o documento */
+body {
+    background-color: #ccc;      /* Fundo cinza claro */
+}
+
+/* Seleciona qualquer elemento com a classe "pai" */
+.pai {
+    color: green;                /* Texto verde */
+    font-family: Arial;          /* Fonte Arial */
+    border: 1px solid red;       /* Borda vermelha sólida de 1px */
+    margin: 10px;                /* Espaçamento externo de 10px em todos os lados */
+}
+
+/* Seleciona todos os parágrafos <p> */
+p {
+    border: inherit;             /* Herda o estilo de borda do elemento pai */
+    margin: inherit;             /* Herda o espaçamento externo do elemento pai */
+}
+
+/* Seleciona todos os parágrafos dentro de um <article> */
+article p {
+    color: blue;                 /* Texto azul apenas nos parágrafos do artigo */
+}
+
+/* Seleciona links <a> que são filhos diretos de <article> */
+article > a {
+    color: green;                /* Texto verde somente para esses links diretos */
+}
+
+/* Seleciona o parágrafo imediatamente após um <h1> */
+h1 + p { 
+    color: red;                  /* Texto vermelho se o <p> vier logo depois de um <h1> */
+}
+
+/* Seleciona qualquer parágrafo que seja irmão de um <h1> (não necessariamente imediato) */
+h1 ~ p {
+    color: red;                  /* Texto vermelho para todos esses parágrafos irmãos */
+}

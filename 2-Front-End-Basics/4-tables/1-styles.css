@@ -1,0 +1,80 @@
+/* Seleciona todos os elementos <h1> */
+h1 {
+    color: blue;        /* Define a cor do texto como azul */
+    font-size: 32px;    /* Define o tamanho da fonte como 32 pixels */
+}
+
+/* Seleciona todos os parágrafos <p> */
+p {
+    color: gray;        /* Define a cor do texto como cinza */
+    line-height: 1.5;   /* Define a altura da linha em 1.5 vezes o tamanho da fonte */
+}
+
+/* Seleciona qualquer elemento com a classe "destaque" */
+.destaque {
+    background-color: yellow; /* Define o fundo como amarelo */
+    font-weight: bold;        /* Deixa o texto em negrito */
+}
+
+/* Seleciona o elemento com o id "cabecalho" */
+#cabecalho {
+    background-color: black; /* Define o fundo como preto */
+    color: white;            /* Define o texto como branco */
+    padding: 10px;           /* Adiciona 10px de espaçamento interno */
+}
+
+/* Seleciona cada <li> dentro de uma <ul> */
+ul li {
+    font-family: Arial;      /* Define a fonte como Arial */
+}
+
+/* Seleciona <li> com a classe "importante" dentro de uma <ul> */
+ul li.importante {
+    color: red;              /* Define a cor do texto como vermelho */
+}
+
+/* Estado de hover em todos os links <a> */
+a:hover {
+    text-decoration: none;   /* Remove o sublinhado ao passar o mouse */
+    color: green;            /* Muda a cor do texto para verde ao passar o mouse */
+}
+
+/* Agrupa seletores de cabeçalhos para aplicar os mesmos estilos */
+h1, h2, h3 {
+    text-align: center;      /* Centraliza o texto */
+    color: navy;             /* Define a cor do texto como azul-marinho */
+}
+
+/* Seleciona o elemento <body> */
+body {
+    background-color: #f0f0f0; /* Define um fundo cinza claro */
+    margin: 0;                 /* Remove a margem padrão do navegador */
+}
+
+/* Comentário sobre especificidade de seletores:
+   Inline: 1000
+   ID:     100
+   Classe/pseudo: 10
+   Tipo:    1
+*/
+
+/* Novo bloco para <p>, usando !important para forçar a cor */
+p {
+    color: blueviolet !important; /* Força a cor violetada, ignorando regras anteriores */
+}
+
+/* Seleciona <p> com a classe "texto" */
+p.texto {
+    color: bisque;           /* Define a cor do texto como bisque */
+}
+
+/* Bloco comentado – não está ativo */
+
+ .texto {
+     color: aquamarine;     /* Definiria a cor aquamarina para qualquer elemento com classe texto */
+ }
+
+ #principal {
+     color: black;          /* Definiria a cor preta para o elemento com id principal */
+ }
+ 
