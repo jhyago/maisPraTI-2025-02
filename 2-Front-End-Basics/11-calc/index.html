@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Metadados e título da página -->
+  <meta charset="UTF-8"> <!-- Codificação de caracteres UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade em dispositivos móveis -->
+  <title>Calculadora sem eval()</title>
+
+  <style>
+    /* Estilo base do body para centralização e aparência */
+    body {
+      display: flex;                   /* Layout flexível para centralizar conteúdo */
+      justify-content: center;         /* Alinha horizontalmente ao centro */
+      align-items: center;             /* Alinha verticalmente ao centro */
+      height: 100vh;                   /* Altura igual à viewport */
+      margin: 0;                       /* Remove margens padrão do navegador */
+      background-color: #f0f0f0;       /* Fundo cinza claro */
+      font-family: Arial, sans-serif;  /* Fonte legível e padrão */
+    }
+
+    /* Container principal da calculadora */
+    .calc {
+      background-color: #ffffff;                      /* Fundo branco */
+      padding: 1rem;                                  /* Espaçamento interno */
+      border-radius: 8px;                             /* Bordas arredondadas */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);       /* Sombra suave para profundidade */
+      width: 16rem;                                   /* Largura fixa para consistência */
+    }
+
+    /* Display de saída da calculadora */
+    .display {
+      width: 90%;                     /* Ocupa toda a largura do container */
+      height: 2.5rem;                  /* Altura maior para legibilidade */
+      margin-bottom: 0.5rem;           /* Espaço abaixo do display */
+      padding: 0 0.5rem;               /* Espaçamento interno lateral */
+      font-size: 1.2rem;               /* Fonte maior para números */
+      text-align: right;               /* Números alinhados à direita */
+      border: 1px solid #ccc;          /* Borda cinza clara */
+      border-radius: 4px;              /* Bordas levemente arredondadas */
+      background-color: #fafafa;       /* Fundo levemente diferente */
+    }
+
+    /* Container dos botões em grid */
+    .keys {
+      display: grid;                             /* Layout em grid */
+      grid-template-columns: repeat(4, 1fr);     /* 4 colunas iguais */
+      gap: 0.5rem;                               /* Espaçamento entre botões */
+    }
+
+    /* Estilo geral dos botões */
+    .keys button {
+      height: 3rem;                             /* Altura fixa */
+      font-size: 1.1rem;                        /* Fonte legível */
+      border: none;                             /* Remove bordas padrão */
+      border-radius: 4px;                       /* Bordas arredondadas */
+      cursor: pointer;                          /* Cursor de ponteiro ao passar o mouse */
+      background-color: #e0e0e0;                /* Fundo cinza claro inicial */
+      transition: background-color 0.2s ease;   /* Transição suave de cor */
+    }
+
+    /* Efeito de foco/hover nos botões */
+    .keys button:hover {
+      background-color: #d5d5d5;                /* Cor mais escura ao passar o mouse */
+    }
+
+    /* Estilo específico para os botões C e = */
+    .keys button:nth-last-child(2),              /* Penúltimo botão (C) */
+    .keys button:nth-last-child(1) {            /* Último botão (=) */
+      background-color: #4CAF50;                 /* Fundo verde */
+      color: #ffffff;                            /* Texto branco */
+    }
+
+    /* Hover específico para C e = */
+    .keys button:nth-last-child(2):hover,
+    .keys button:nth-last-child(1):hover {
+      background-color: #45A049;                 /* Verde mais escuro */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Calculadora: display e botões -->
+  <div class="calc">
+    <!-- Campo de display, somente leitura para evitar edição direta -->
+    <input id="display2" class="display" type="text" readonly>
+
+    <!-- Botões de números e operadores -->
+    <div class="keys">
+      <button onclick="enter2('7')">7</button>
+      <button onclick="enter2('8')">8</button>
+      <button onclick="enter2('9')">9</button>
+      <button onclick="enter2('/')">/</button>
+      <button onclick="enter2('4')">4</button>
+      <button onclick="enter2('5')">5</button>
+      <button onclick="enter2('6')">6</button>
+      <button onclick="enter2('*')">*</button>
+      <button onclick="enter2('1')">1</button>
+      <button onclick="enter2('2')">2</button>
+      <button onclick="enter2('3')">3</button>
+      <button onclick="enter2('-')">-</button>
+      <button onclick="enter2('0')">0</button>
+      <button onclick="enter2('.')">.</button>
+      <button onclick="clear2()">C</button>
+      <button onclick="calc2()">=</button>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * Adiciona caractere ao display, evitando operadores consecutivos.
+     * @param {string} char - Número ou operador a ser inserido.
+     */
+    function enter2(char) {
+      const display = document.getElementById('display2');
+      const lastChar = display.value.slice(-1);
+
+      // Se o último caractere e o atual são operadores, não adiciona
+      if ('+-*/.'.includes(char) && '+-*/.'.includes(lastChar)) {
+        return;
+      }
+      display.value += char;
+    }
+
+    /**
+     * Limpa todo o conteúdo do display.
+     */
+    function clear2() {
+      document.getElementById('display2').value = '';
+    }
+
+    /**
+     * Calcula expressão sem usar eval().
+     * Lógica:
+     * 1) Tokeniza em números e operadores.
+     * 2) Primeiro passa multiplica/divide, depois soma/subtrai.
+     */
+    function calc2() {
+      const display = document.getElementById('display2');
+      const expr = display.value;
+
+      // Valida se a expressão termina com operador ou está vazia
+      if (!expr || '+-*/.'.includes(expr.slice(-1))) {
+        return;
+      }
+
+      // Tokenização: divide em números (floats) e operadores
+      const tokens = expr.match(/\d+\.?\d*|[+\-*/]/g);
+      if (!tokens) {
+        alert('Expressão inválida');
+        clear2();
+        return;
+      }
+
+      /**
+       * Processa um array de tokens para operações específicas.
+       * @param {string[]} tokensArray - Tokens originais.
+       * @param {string[]} operators - Operadores a processar.
+       * @returns {string[]} Novo array de tokens.
+       */
+      function process(tokensArray, operators) {
+        const output = [];
+        for (let i = 0; i < tokensArray.length; i++) {
+          const token = tokensArray[i];
+
+          if (operators.includes(token)) {
+            const a = parseFloat(output.pop());      // Operando anterior
+            const b = parseFloat(tokensArray[++i]);   // Próximo operando
+            let result;
+
+            switch (token) {
+              case '*': result = a * b; break;
+              case '/': result = a / b; break;
+              case '+': result = a + b; break;
+              case '-': result = a - b; break;
+            }
+            output.push(result.toString());
+          } else {
+            output.push(token);
+          }
+        }
+        return output;
+      }
+
+      try {
+        // Primeiro passo: * e /
+        const pass1 = process(tokens, ['*', '/']);
+        // Segundo passo: + e -
+        const pass2 = process(pass1, ['+', '-']);
+        // Exibe resultado
+        display.value = pass2[0];
+      } catch (error) {
+        alert('Erro ao calcular');
+        clear2();
+      }
+    }
+  </script>
+</body>
+</html>

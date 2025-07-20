@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- define codificação -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- layout responsivo -->
+  <title>Box Model &amp; Product Card</title>
+  <style>
+    /* INCLUI BOX-SIZING GLOBAL PARA INCLUIR PADDING E BORDER NA LARGURA/ALTURA */
+    * {
+      box-sizing: border-box; /* largura e altura já incluem padding e border */
+    }
+
+    body {
+      margin: 0;                    /* remove margens padrão */
+      padding: 20px;                /* espaçamento interno na página */
+      font-family: sans-serif;      /* fonte legível */
+      background-color: #f5f5f5;    /* fundo suave */
+      color: #333;                  /* cor de texto padrão */
+    }
+
+    /* === DEMONSTRAÇÃO DE BOX MODEL === */
+    .demo-section {
+      margin-bottom: 40px;          /* separa da próxima seção */
+    }
+
+    /* exemplo clássico: content-box (padrão) */
+    .demo-section h2.content {
+      border: 1px solid red;        /* borda vermelha */
+      width: 100px;                 /* largura do conteúdo */
+      height: 100px;                /* altura do conteúdo */
+      padding: 10px;                /* espaço interno */
+      margin-left: 100px;           /* desloca à direita */
+      /* box-sizing já está em border-box, mas aqui ilustramos que
+         largura total = 100 + (10*2) + (1*2) = 122px */
+      margin-bottom: 20px;          /* separação da próxima demo */
+    }
+
+    /* exemplo de unidades relativas */
+    .demo-section h2.units {
+      border: 1px solid red;        /* mesma borda */
+      width: 100vmin;               /* 100% da menor dimensão da viewport */
+      height: 100vmin;              /* idem para altura */
+      font-size: 2rem;              /* tamanho de fonte relativo */
+      margin-bottom: 20px;          /* separação da próxima seção */
+    }
+
+    /* === CARD DE PRODUTO === */
+    .product-card {
+      width: 200px;                 /* largura total desejada */
+      padding: 20px;                /* evita conteúdo colado na borda */
+      border: 2px solid #ccc;       /* borda sólida de 2px */
+      border-radius: 6px;           /* cantos arredondados */
+      background-color: white;      /* fundo branco */
+      display: flex;                /* layout flexível */
+      flex-direction: column;       /* empilha verticalmente */
+      /* sem height fixo: cresce conforme conteúdo */
+      margin: 0 auto;               /* centraliza horizontalmente */
+    }
+
+    .product-card img {
+      width: 100%;                  /* imagem ocupa toda a largura interna */
+      height: auto;                 /* mantém proporção */
+      margin-bottom: 10px;          /* separa do nome */
+      display: block;               /* elimina espaçamento inline */
+    }
+
+    .product-card .product-name {
+      font-size: 1.1rem;            /* título um pouco maior */
+      margin: 0 0 8px;              /* separa preço */
+    }
+
+    .product-card .product-price {
+      color: #e74c3c;               /* cor de preço em destaque */
+      font-weight: bold;            /* negrito */
+      margin: 0;                    /* sem margem extra */
+    }
+
+    .product-card .buy-button {
+      padding: 10px;                /* espaço interno no botão */
+      margin-top: auto;             /* empurra botão para o fim do card */
+      margin-bottom: 10px;          /* separa de conteúdo abaixo, se houver */
+      border: none;                 /* sem borda padrão */
+      background-color: #3498db;    /* cor de fundo azul */
+      color: white;                 /* texto branco */
+      font-size: 1rem;              /* tamanho de fonte legível */
+      border-radius: 4px;           /* cantos levemente arredondados */
+      cursor: pointer;              /* cursor de clique */
+    }
+
+    .product-card .buy-button:hover {
+      background-color: #2980b9;    /* tom mais escuro ao passar o mouse */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Seção: Demonstração de Box Model -->
+  <section class="demo-section">
+    <h2 class="content">content</h2>        <!-- demonstra conteúdo + padding + border -->
+    <h2 class="units">unidades de medida</h2> <!-- demonstra vmin e rem -->
+  </section>
+
+  <!-- Seção: Card de Produto -->
+  <section>
+    <div class="product-card">
+      <!-- Imagem do produto -->
+      <img src="/2-Front-End-Basics/assets/Grêmio.jpg" alt="Produto Exemplo">
+      <!-- Nome do produto -->
+      <h3 class="product-name">Tênis de Corrida</h3>
+      <!-- Preço -->
+      <p class="product-price">R$ 199,90</p>
+      <!-- Botão de compra fixado ao rodapé interno do card -->
+      <button class="buy-button">Comprar</button>
+    </div>
+  </section>
+
+</body>
+</html>

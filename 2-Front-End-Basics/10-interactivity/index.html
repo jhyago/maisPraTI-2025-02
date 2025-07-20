@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"> <!-- Define codificação de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade em dispositivos móveis -->
+  <title>Site Interativo Aprimorado</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Vincula o CSS externo -->
+</head>
+<body>
+  <!-- =========================
+       CABEÇALHO FIXO E RESPONSIVO
+       ========================= -->
+  <header class="header">
+    <div class="container header-container">
+      <!-- Botão hamburger para abrir/fechar menu em mobile -->
+      <button
+        id="navToggle"
+        class="nav-toggle"
+        aria-controls="navMenu"      <!-- Indica qual elemento controla -->
+        aria-expanded="false"       <!-- Estado inicial fechado -->
+        aria-label="Abrir menu"     <!-- Texto para leitores de tela -->
+      >
+        &#9776; <!-- Ícone Unicode de menu (☰) -->
+      </button>
+
+      <!-- Navegação principal -->
+      <nav id="navMenu" class="nav" role="navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero">Início</a></li>
+          <li class="nav-item"><a href="#services">Serviços</a></li>
+          <li class="nav-item"><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================
+         SEÇÃO HERO
+         ========================= -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <h1>Bem-vindo ao nosso site!</h1> <!-- Título principal -->
+        <p>Oferecemos soluções na área de tecnologia.</p> <!-- Subtítulo -->
+        <a href="#contact" class="btn">Fale Conosco</a> <!-- Link para formulário de contato -->
+      </div>
+    </section>
+
+    <!-- =========================
+         SEÇÃO DE SERVIÇOS
+         ========================= -->
+    <section id="services" class="services container">
+      <h2>Nossos Serviços</h2> <!-- Título da seção -->
+      <div class="cards">
+        <div class="card">
+          <h3>Desenvolvimento Back-end</h3>
+          <p>APIs seguras e performance otimizada.</p>
+        </div>
+        <div class="card">
+          <h3>Desenvolvimento Front-end</h3>
+          <p>Interfaces amigáveis e responsivas.</p>
+        </div>
+        <div class="card">
+          <h3>Consultoria</h3>
+          <p>Planejamento e Arquitetura de Projetos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         SEÇÃO DE CONTATO
+         ========================= -->
+    <section id="contact" class="contact container">
+      <h2>Contato</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Nome Completo</label> <!-- Associa label ao input -->
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Sua mensagem</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Enviar Mensagem</button> <!-- Botão de envio -->
+      </form>
+    </section>
+  </main>
+
+  <!-- =========================
+       RODAPÉ
+       ========================= -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Nome da Marca. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script> <!-- Vincula o JavaScript externo -->
+</body>
+</html>
