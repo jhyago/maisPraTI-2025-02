@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"> <!-- Define a codificação de caracteres do documento como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura o layout para dispositivos móveis -->
+  <title>DOM e BOM – Exemplo Aprimorado</title>
+  <style>
+    /* ============================
+       ESTILOS GERAIS
+       ============================ */
+    body {
+      margin: 0;                            /* Remove margens padrão do navegador */
+      padding: 1rem;                        /* Adiciona um espaçamento interno em toda a página */
+      font-family: Arial, sans-serif;       /* Fonte legível e genérica */
+      background: #f0f0f0;                  /* Fundo suave para todo o documento */
+      color: #333;                          /* Cor padrão de texto */
+      line-height: 1.5;                     /* Espaçamento de linha para melhor leitura */
+    }
+
+    header h1 {
+      margin: 0 0 1rem;                     /* Título apresenta margem inferior para separar do conteúdo */
+      font-size: 2rem;                      /* Tamanho maior para o cabeçalho */
+      text-align: center;                   /* Centraliza o título na página */
+    }
+
+    button {
+      display: inline-block;                /* Garante comportamento de bloco inline */
+      margin: 0.5rem 0;                     /* Espaço acima e abaixo de cada botão */
+      padding: 0.5rem 1rem;                 /* Espaçamento interno confortável */
+      border: none;                         /* Remove borda padrão */
+      background: #3498db;                  /* Cor de fundo azul */
+      color: #fff;                          /* Texto branco */
+      border-radius: 4px;                   /* Bordas levemente arredondadas */
+      cursor: pointer;                      /* Cursor de ponteiro para indicar clicável */
+      transition: background 0.2s;          /* Transição suave ao alterar cor de fundo */
+    }
+
+    button:hover {
+      background: #2980b9;                  /* Tom mais escuro quando o usuário passa o mouse */
+    }
+
+    /* ============================
+       LISTA DE ITENS
+       ============================ */
+    ul {
+      list-style: none;                     /* Remove marcadores padrão */
+      padding: 0;                           /* Remove padding padrão da lista */
+      margin: 1rem 0;                       /* Margem acima e abaixo para separar do restante */
+    }
+
+    ul li {
+      display: flex;                        /* Exibe itens em flex para alinhar conteúdo */
+      justify-content: space-between;      /* Espaço entre texto e botão de remover */
+      align-items: center;                  /* Alinha verticalmente ao centro */
+      background: #fff;                     /* Fundo branco para cada item */
+      padding: 0.5rem;                      /* Espaçamento interno do item */
+      margin-bottom: 0.5rem;                /* Espaço entre itens */
+      border-radius: 4px;                   /* Cantos arredondados */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra sutil para destacar item */
+    }
+
+    .focado {
+      color: #0066cc;                       /* Texto azul intenso para estado de foco */
+      font-size: 1.5rem;                    /* Aumenta o tamanho da fonte no foco */
+    }
+
+    /* Área onde será exibida a saída JSON formatada */
+    #saida {
+      white-space: pre-wrap;                /* Preserva quebras de linha no JSON */
+      background: #fff;                     /* Fundo branco */
+      padding: 1rem;                        /* Espaçamento interno */
+      border-radius: 4px;                   /* Cantos arredondados */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra sutil para destacar a área */
+      margin-top: 1rem;                     /* Espaço acima da área de saída */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Cabeçalho principal da página -->
+    <h1 id="titulo">Título Original</h1>
+  </header>
+
+  <!-- Botões para interagir com o DOM e BOM -->
+  <button id="btn-alterar">Alterar Título</button>
+  <button id="btn-adicionar">Adicionar Item</button>
+  <button id="btn-dialogos">Iniciar Diálogos</button>
+  <button id="btn-ir">Ir para o Google</button>
+  <button id="btn-atualizar">Atualizar Página</button>
+  <button id="btn-info">Ver Informações</button>
+
+  <!-- Lista dinâmica que receberá itens criados via JavaScript -->
+  <ul id="lista"></ul>
+
+  <!-- Parágrafo que ganha destaque cromático quando o mouse passa por cima -->
+  <p id="paragrafo">Copa Mundial de Clubes</p>
+
+  <!-- Área de texto onde serão exibidas informações do navegador em formato JSON -->
+  <pre id="saida"></pre>
+
+  <script>
+    // Aguarda o carregamento completo do DOM antes de executar qualquer manipulação
+    document.addEventListener('DOMContentLoaded', () => {
+      // Referências aos elementos usados no script
+      const tituloEl     = document.getElementById('titulo');
+      const btnAlterar   = document.getElementById('btn-alterar');
+      const btnAdicionar = document.getElementById('btn-adicionar');
+      const btnDialogos  = document.getElementById('btn-dialogos');
+      const btnIr        = document.getElementById('btn-ir');
+      const btnAtualizar = document.getElementById('btn-atualizar');
+      const btnInfo      = document.getElementById('btn-info');
+      const listaEl      = document.getElementById('lista');
+      const paragrafoEl  = document.getElementById('paragrafo');
+      const saidaEl      = document.getElementById('saida');
+
+      let contador = 1; // Controla o número sequencial dos itens adicionados
+
+      /**
+       * Atualiza o texto do título principal.
+       */
+      function alterarTitulo() {
+        tituloEl.textContent = 'Título Atualizado';
+      }
+
+      /**
+       * Cria um novo item na lista com um botão de remoção.
+       */
+      function adicionarItem() {
+        const li = document.createElement('li');
+        li.textContent = `Item ${contador++}`; // Define o texto do item
+
+        // Cria e configura botão de remoção
+        const btnRemover = document.createElement('button');
+        btnRemover.textContent = '✖';
+        btnRemover.style.background = '#e74c3c'; // Borda vermelha para indicar exclusão
+        btnRemover.style.marginLeft = '1rem';
+        btnRemover.addEventListener('click', () => {
+          listaEl.removeChild(li); // Remove o <li> da lista
+        });
+
+        li.appendChild(btnRemover); // Anexa o botão ao <li>
+        listaEl.appendChild(li);    // Adiciona o <li> à lista no DOM
+      }
+
+      /**
+       * Aplica ou remove a classe 'focado' quando o mouse sobrepõe o parágrafo.
+       */
+      paragrafoEl.addEventListener('mouseover', () => {
+        paragrafoEl.classList.add('focado');
+      });
+      paragrafoEl.addEventListener('mouseout', () => {
+        paragrafoEl.classList.remove('focado');
+      });
+
+      /**
+       * Mostra sequência de diálogos: alert, prompt e confirm.
+       */
+      function mostrarDialogos() {
+        alert('Bem-vindo!'); // Saudação inicial
+        const nome = prompt('Qual seu nome?', 'Visitante'); // Pede o nome
+        // Se não cancelou o prompt...
+        if (nome !== null) {
+          if (confirm(`Confirmar nome: ${nome}`)) {
+            alert(`Olá, ${nome}!`); // Exibe saudação com nome
+          } else {
+            alert('Você cancelou a confirmação.');
+          }
+        }
+      }
+
+      /**
+       * Redireciona o usuário para o site do Google.
+       */
+      function irParaGoogle() {
+        window.location.href = 'https://www.google.com';
+      }
+
+      /**
+       * Recarrega a página atual.
+       */
+      function atualizarPagina() {
+        window.location.reload();
+      }
+
+      /**
+       * Coleta dados do navegador (BOM) e exibe em JSON formatado.
+       */
+      function exibirInfo() {
+        const info = {
+          userAgent: navigator.userAgent, // Identificação do navegador
+          plataforma: navigator.platform,  // Sistema operacional
+          idioma: navigator.language,      // Idioma configurado
+          larguraTela: screen.width,       // Largura da tela em pixels
+          alturaTela: screen.height        // Altura da tela em pixels
+        };
+        // Converte o objeto em texto JSON com formatação de 2 espaços
+        saidaEl.textContent = JSON.stringify(info, null, 2);
+      }
+
+      // Associa cada função ao clique do respectivo botão
+      btnAlterar.addEventListener('click', alterarTitulo);
+      btnAdicionar.addEventListener('click', adicionarItem);
+      btnDialogos.addEventListener('click', mostrarDialogos);
+      btnIr.addEventListener('click', irParaGoogle);
+      btnAtualizar.addEventListener('click', atualizarPagina);
+      btnInfo.addEventListener('click', exibirInfo);
+    });
+  </script>
+</body>
+</html>

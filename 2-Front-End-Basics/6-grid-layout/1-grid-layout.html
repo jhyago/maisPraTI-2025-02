@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Define codificação de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade -->
+  <title>Grid Layout Melhorado</title>
+  <style>
+    /* Container principal usando CSS Grid */
+    .container {
+      display: grid; /* ativa o Grid Layout */
+      grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanho igual */
+      grid-template-rows: repeat(2, 100px); /* 2 linhas de 100px de altura */
+      gap: 10px; /* espaço entre as células */
+      padding: 10px; /* espaço interno no container */
+      border: 1px solid #333; /* borda ao redor do grid */
+      background-color: #ccc; /* fundo do grid */
+    }
+
+    /* Item 1 estende-se pelas colunas 1 e 2 na primeira linha */
+    .container .item:nth-child(1) {
+      grid-column: 1 / span 2; /* ocupa 2 colunas a partir da coluna 1 */
+      grid-row: 1;            /* posiciona na linha 1 */
+    }
+
+    /* Item 4 ocupa colunas 1 e 2 e linhas 2 e 3 */
+    .container .item:nth-child(4) {
+      grid-column: 1 / span 2;  /* ocupa 2 colunas */
+      grid-row: 2 / 4;          /* da linha 2 até antes da linha 4 */
+    }
+
+    /* Estilo comum para todos os itens */
+    .container .item {
+      border: 1px solid #333;   /* borda herdada */
+      background-color: #fff;   /* fundo branco */
+      display: flex;            /* layout flex interno */
+      align-items: center;      /* alinha verticalmente ao centro */
+      justify-content: center;  /* alinha horizontalmente ao centro */
+      font-size: 1.25rem;       /* tamanho de fonte legível */
+      color: #333;              /* cor do texto */
+    }
+
+    /* Grid responsivo para telas pequenas */
+    @media (max-width: 600px) {
+      .container {
+        grid-template-columns: 1fr;                    /* uma única coluna */
+        grid-template-rows: repeat(auto-fill, 150px);  /* múltiplas linhas de 150px */
+      }
+      .container .item:nth-child(1),
+      .container .item:nth-child(4) {
+        grid-column: auto; /* reset para fluxo natural */
+        grid-row: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container"> <!-- Cada .item é uma célula do grid -->
+    <div class="item">1</div> <!-- Item 1: ocupa 2 colunas na primeira linha -->
+    <div class="item">2</div> <!-- Item 2: ocupa posição natural -->
+    <div class="item">3</div> <!-- Item 3: ocupa posição natural -->
+    <div class="item">4</div> <!-- Item 4: ocupa 2 colunas e 2 linhas -->
+    <div class="item">5</div> <!-- Item 5: ocupa posição natural -->
+    <div class="item">6</div> <!-- Item 6: ocupa posição natural -->
+  </div>
+</body>
+</html>

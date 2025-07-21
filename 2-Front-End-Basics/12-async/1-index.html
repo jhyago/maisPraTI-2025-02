@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"> <!-- Define a codificação de caracteres do documento como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante responsividade em dispositivos móveis -->
+  <title>Consulta de Endereço por CEP</title>
+  <style>
+    /* ===========================
+       ESTILOS GERAIS
+       =========================== */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte legível */
+      margin: 2rem;            /* Espaçamento em volta de todo o conteúdo */
+      background-color: #f5f5f5; /* Fundo suave */
+      color: #333;             /* Cor padrão do texto */
+    }
+    h1 {
+      text-align: center;      /* Centraliza o título */
+      margin-bottom: 1.5rem;   /* Espaço abaixo do título */
+    }
+
+    /* ===========================
+       FORMULÁRIO DE BUSCA
+       =========================== */
+    form {
+      max-width: 400px;        /* Largura máxima do formulário */
+      margin: 0 auto 2rem;     /* Centraliza e adiciona margem inferior */
+      padding: 1rem;           /* Espaçamento interno */
+      background: #fff;        /* Fundo branco para destaque */
+      border-radius: 8px;      /* Cantos arredondados */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Sombra sutil */
+    }
+    .form-group {
+      margin-bottom: 1rem;     /* Espaço abaixo de cada grupo */
+    }
+    label {
+      display: block;          /* Ocupa linha inteira */
+      margin-bottom: 0.5rem;   /* Espaço abaixo do texto do label */
+      font-weight: bold;       /* Destaca o texto do label */
+    }
+    input[type="text"] {
+      width: 100%;             /* Ocupa toda a largura disponível */
+      padding: 0.5rem;         /* Espaço interno confortável */
+      font-size: 1rem;         /* Tamanho de fonte legível */
+      border: 1px solid #ccc;  /* Borda cinza sutil */
+      border-radius: 4px;      /* Cantos levemente arredondados */
+    }
+    button {
+      display: block;          /* Ocupa linha inteira */
+      width: 100%;             /* Botão com largura total do form */
+      padding: 0.75rem;        /* Espaçamento interno maior */
+      font-size: 1rem;         /* Texto do botão legível */
+      color: #fff;             /* Texto branco */
+      background-color: #0071bc; /* Azul VIA CEP */
+      border: none;            /* Remove borda padrão */
+      border-radius: 4px;      /* Cantos arredondados */
+      cursor: pointer;         /* Cursor de clique */
+      transition: background 0.2s; /* Transição suave de cor */
+    }
+    button:hover {
+      background-color: #005ea6; /* Tom mais escuro ao passar o mouse */
+    }
+
+    /* ===========================
+       RESULTADO DA CONSULTA
+       =========================== */
+    #resultado {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #resultado h2 {
+      margin-top: 0;           /* Remove margem superior do título */
+      color: #0071bc;          /* Destaque na cor azul VIA CEP */
+    }
+    #resultado ul {
+      list-style: none;        /* Remove marcadores da lista */
+      padding-left: 0;         /* Remove padding padrão */
+    }
+    #resultado li {
+      margin-bottom: 0.5rem;   /* Espaço entre itens */
+    }
+    .erro {
+      color: #c0392b;          /* Texto em vermelho para erros */
+      font-weight: bold;       /* Negrito para chamar atenção */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       TÍTULO PRINCIPAL
+       =========================== -->
+  <h1>Consulta de Endereço por CEP</h1>
+
+  <!-- ===========================
+       FORMULÁRIO DE BUSCA
+       =========================== -->
+  <form id="cep-form">
+    <!-- Agrupa o campo de entrada -->
+    <div class="form-group">
+      <label for="cep">Digite o CEP (apenas números):</label>
+      <!-- maxlength 9 permite inserir hífen opcional -->
+      <input
+        type="text"
+        id="cep"
+        name="cep"
+        maxlength="9"
+        placeholder="Ex: 01001-000"
+        pattern="\d{5}-?\d{3}" 
+        required               
+      >
+    </div>
+    <button type="submit" id="buscar">Buscar Endereço</button>
+  </form>
+
+  <!-- ===========================
+       SEÇÃO DE RESULTADO
+       (vazia até a busca ser realizada)
+       =========================== -->
+  <div id="resultado"></div>
+
+  <script>
+    // Obtém referências aos elementos do DOM
+    const formCep       = document.getElementById('cep-form');
+    const inputCep      = document.getElementById('cep');
+    const divResultado  = document.getElementById('resultado');
+
+    /**
+     * Faz a consulta na API ViaCEP usando o CEP informado.
+     * @param {Event} event - Evento de submissão do formulário
+     */
+    async function consultarCep(event) {
+      event.preventDefault(); // Impede o recarregamento automático da página
+
+      // Obtém apenas dígitos do input, removendo hífen se existir
+      const cepRaw = inputCep.value;
+      const cep = cepRaw.replace(/\D/g, '');
+
+      // Valida se temos exatamente 8 dígitos numéricos
+      if (cep.length !== 8) {
+        divResultado.innerHTML = `<p class="erro">Formato de CEP inválido! Use 8 dígitos.</p>`;
+        return;
+      }
+
+      // Monta a URL da API com o CEP validado
+      const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+      try {
+        // Chama a API ViaCEP
+        const response = await fetch(url);
+        // Converte a resposta para JSON
+        const data = await response.json();
+
+        // Verifica se a API retornou erro (campo "erro" em JSON)
+        if (data.erro) {
+          divResultado.innerHTML = `<p class="erro">CEP não encontrado: ${cepRaw}</p>`;
+          return;
+        }
+
+        // Exibe os dados retornados em formato de lista
+        divResultado.innerHTML = `
+          <h2>Endereço Encontrado:</h2>
+          <ul>
+            <li><strong>CEP:</strong> ${data.cep}</li>
+            <li><strong>Logradouro:</strong> ${data.logradouro}</li>
+            <li><strong>Complemento:</strong> ${data.complemento || '—'}</li>
+            <li><strong>Bairro:</strong> ${data.bairro}</li>
+            <li><strong>Cidade:</strong> ${data.localidade}</li>
+            <li><strong>Estado:</strong> ${data.uf}</li>
+          </ul>
+        `;
+      } catch (error) {
+        // Captura falhas de rede ou erros inesperados
+        divResultado.innerHTML = `
+          <p class="erro">
+            Não foi possível consultar o CEP no momento.<br>
+            Por favor, tente novamente mais tarde.
+          </p>
+        `;
+        console.error('Erro ao chamar ViaCEP:', error);
+      }
+    }
+
+    // Registra o listener para submissão do formulário
+    formCep.addEventListener('submit', consultarCep);
+  </script>
+</body>
+</html>

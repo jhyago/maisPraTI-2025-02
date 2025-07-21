@@ -1,0 +1,63 @@
+<!DOCTYPE html> <!-- Declara que este documento usa HTML5 -->
+<html lang="en"> <!-- Início do elemento raiz, define o idioma como inglês -->
+
+<head> <!-- Início da seção de metadados e links externos -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF‑8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a viewport para dispositivos móveis -->
+    <title>Tabela Estilizada</title> <!-- Título exibido na aba do navegador -->
+    <link rel="stylesheet" href="2-table.css"> <!-- Importa o arquivo de estilos CSS externo -->
+</head> <!-- Fim do head -->
+
+<body> <!-- Início do corpo visível da página -->
+
+    <aside> <!-- Seção secundária geralmente usada como menu lateral -->
+        <h2>Menu</h2> <!-- Título da seção de navegação -->
+        <ul> <!-- Início de lista não ordenada de itens de menu -->
+            <li>Dashboard</li> <!-- Primeiro item de menu -->
+            <li>Relatórios</li> <!-- Segundo item de menu -->
+            <li>Contatos</li> <!-- Terceiro item de menu -->
+        </ul> <!-- Fim da lista de navegação -->
+    </aside> <!-- Fim da barra lateral -->
+
+    <main> <!-- Conteúdo principal do documento -->
+        <h1>Relatório de Vendas</h1> <!-- Título principal da seção de relatório -->
+        <table> <!-- Início da tabela de dados -->
+            <thead> <!-- Seção de cabeçalho da tabela -->
+                <tr> <!-- Linha de cabeçalho -->
+                    <th>Cliente</th>    <!-- Coluna de cabeçalho "Cliente" -->
+                    <th>Produto</th>    <!-- Coluna de cabeçalho "Produto" -->
+                    <th>Quantidade</th> <!-- Coluna de cabeçalho "Quantidade" -->
+                    <th>Status</th>     <!-- Coluna de cabeçalho "Status" -->
+                </tr> <!-- Fim da linha de cabeçalho -->
+            </thead> <!-- Fim do cabeçalho -->
+            <tbody> <!-- Seção de corpo da tabela com os dados -->
+                <tr> <!-- Primeira linha de dados -->
+                    <td>Maria Silva</td>                   <!-- Célula: nome do cliente -->
+                    <td>Notebook</td>                       <!-- Célula: produto comprado -->
+                    <td>1</td>                              <!-- Célula: quantidade comprada -->
+                    <td class="status-ok">Concluído</td>    <!-- Célula: status com classe para estilo verde -->
+                </tr> <!-- Fim da primeira linha de dados -->
+                <tr> <!-- Segunda linha de dados -->
+                    <td>Joelson Ribeiro</td>
+                    <td>SmartPhone</td>
+                    <td>2</td>
+                    <td class="status-pending">Pendente</td> <!-- Status pendente com classe para estilo laranja -->
+                </tr> <!-- Fim da segunda linha -->
+                <tr> <!-- Terceira linha de dados -->
+                    <td>Ronan Gorski</td>
+                    <td>Bicicleta</td>
+                    <td>1</td>
+                    <td class="status-ok">Concluído</td>    <!-- Outro status concluído -->
+                </tr> <!-- Fim da terceira linha -->
+                <tr> <!-- Quarta linha de dados -->
+                    <td>Breno Ribeiro</td>
+                    <td>Camisa Tricolor</td>
+                    <td>2</td>
+                    <td class="status-cancelado">Cancelado</td> <!-- Status cancelado com classe para estilo vermelho -->
+                </tr> <!-- Fim da quarta linha -->
+            </tbody> <!-- Fim do corpo da tabela -->
+        </table> <!-- Fim da tabela -->
+    </main> <!-- Fim do conteúdo principal -->
+
+</body> <!-- Fim do corpo -->
+</html> <!-- Fim do documento HTML -->
