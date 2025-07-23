@@ -66,6 +66,7 @@ header {
     font-weight: 300;
     letter-spacing: 1px;
     cursor: pointer;
+    transition: 0.3s;
     padding: 10px;
 }
 
@@ -129,7 +130,7 @@ header {
     height: 100%;
 }
 
-.swiper .swiper-wrapper .swipper-slide {
+.swiper .swiper-wrapper .swiper-slide {
     width: 100%;
     height: 100%;
 }
@@ -150,17 +151,10 @@ header {
     min-height: 100vh;
     padding: 30px 10px 0;
     overflow: hidden;
-    background-color: transparent;
+    background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid blue;
-}
-
-.swiper .swiper-wrapper .swiper-slide .banner .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
 
 .left {
@@ -170,7 +164,6 @@ header {
 .banner .left .features {
     max-width: 400px;
     margin-bottom: 100px;
-    border: 1px solid red
 }
 
 .banner .left .features .rating {
@@ -183,8 +176,63 @@ header {
 
 .banner .left .features .rating .score {
     padding: 15px;
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: 400;
     color: var(--primary);
     background-color: #ffffff;
+}
+
+.banner .left .features .content {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.banner .left .features .pricing {
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.banner .left .features .pricing ion-icon {
+    padding: 15px;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #ffffff;
+    background-color: rgba(255, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.banner .left .features .pricing ion-icon:hover {
+    background: rgba(255, 0, 0, 0.9);
+}
+
+.banner img {
+    max-width: 650px;
+    max-height: 650px;
+    width: 50%;
+    height: 50%;
+}
+
+.right {
+    margin-right: 80px;
+}
+
+.swiper .swiper-wrapper .swiper-slide .banner .right {
+    position: relative;
+    height: 100vh;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    z-index: 100;
+}
+
+.banner .right iframe {
+    max-width: 450px;
+    max-height: 255px;
 }
