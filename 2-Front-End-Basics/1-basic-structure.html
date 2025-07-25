@@ -1,0 +1,91 @@
+<!DOCTYPE html> <!-- Declara o documento como HTML5 -->
+<html lang="en"> <!-- Elemento raiz, atributo lang define o idioma como Inglês -->
+
+<head> <!-- Início do cabeçalho: metadados e estilos -->
+    <meta charset="UTF-8"> <!-- Define codificação de caracteres como UTF‑8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajuste para responsividade em dispositivos móveis -->
+    <title>Dia dos Namorados</title> <!-- Título que aparece na aba do navegador -->
+    <style> 
+        img { /* Estilização para todas as imagens */
+            width: 100%;           /* Largura máxima disponível */
+            margin-bottom: 10px;   /* Espaço abaixo de 10px */
+        }
+
+        #Daredevil { /* Estilo específico para a imagem com id="Daredevil" */
+            width: 150px;                   /* Largura fixa de 150px */
+            height: 150px;                  /* Altura fixa de 150px */
+            border-radius: 50%;             /* Torna a imagem redonda */
+            border: 2px solid #444;         /* Borda sólida escura de 2px */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            object-fit: cover;              /* Corta a imagem para cobrir o container sem distorcer */
+        }
+
+        table,
+        tr,
+        td { /* Estilo para tabela, linhas e células */
+            border: 1px solid; /* Borda sólida de 1px por padrão */
+        }
+    </style> <!-- Fim do bloco de estilos -->
+</head> <!-- Fim do cabeçalho -->
+
+<body> <!-- Início do corpo: conteúdo visível na página -->
+    <p>
+        Visite o <a href="https://developer.mozilla.org/pt-BR">MDN Web Docs</a> para a documentação HTML
+        <!-- Parágrafo com link externo para MDN Web Docs -->
+    </p>
+
+    <a href="#secao-ancorada">Link para a seção ancorada</a> <!-- Link que aponta a um id dentro da página -->
+
+    <p id="secao-ancorada">Seção ancorada
+        <a href="1-Basic-Structure.html">Link para a primeira aula</a>
+        <!-- Parágrafo marcado com id, contendo link para outra página -->
+    </p>
+
+    <p>
+        <a href="mailto:suporte@naovouresponder.com.br" target="_blank" rel="noopener noreferrer">
+            Envie um e-mail para o suporte
+        </a>
+        <!-- Link mailto que abre o cliente de e-mail em nova aba -->
+    </p>
+
+    <h3>Imagem de Exemplo</h3> <!-- Título de nível 3 para seção de imagens -->
+    <img src="assets/Batman.jpg" alt="" width="300"> <!-- Imagem com largura fixa de 300px -->
+
+    <img src="assets/Arena.jpg" alt="Campeão do Mundo de 83" width="300">
+    <!-- Imagem com atributo alt descritivo e largura de 300px -->
+
+    <!-- Um cabeçalho com menu interno, um desses links seja um . E os outros, tenham imagens em diferentes tamanhos.  -->
+    <!-- Comentário de instrução sobre um cabeçalho e imagens diversos -->
+
+    <img src="assets/Daredevil.jpg" alt="" id="Daredevil">
+    <!-- Imagem com id para estilo circular, conforme definido no CSS -->
+
+    <table> <!-- Início de uma tabela -->
+        <tr> <!-- Linha de cabeçalho -->
+            <th>Título</th> <!-- Célula de cabeçalho "Título" -->
+            <th>Vídeo</th>   <!-- Célula de cabeçalho "Vídeo" -->
+        </tr>
+        <tr> <!-- Segunda linha, conteúdo de dados -->
+            <td>Apresentação do Conteúdo</td> <!-- Célula com texto -->
+            <td>
+                <div>
+                    <iframe
+                        width="300"
+                        height="300"
+                        src="https://www.youtube.com/embed/klE5WuYgDcw"
+                        title="O Aluno Perfeito | 2.5 Horas de Episódios Antigos | Pica-Pau em Português"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <!-- Incorpora vídeo do YouTube com dimensões fixas e permissões -->
+                </div>
+            </td>
+        </tr>
+    </table> <!-- Fim da tabela -->
+
+    <!-- Criar uma tabela com 5x5 de imagens. -->
+    <!-- Comentário indicando próximo exercício ou tarefa -->
+</body> <!-- Fim do corpo -->
+</html> <!-- Fim do documento HTML -->

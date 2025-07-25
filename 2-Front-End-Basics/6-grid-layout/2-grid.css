@@ -1,0 +1,120 @@
+body {
+    margin: 0;                           /* Remove margens padrão do navegador */
+    font-family: 
+        'Arial Black', Gadget, sans-serif; /* Fonte “forte”, lembrando quadrinhos */
+    background-color: #0c1a2a;           /* Azul‑escuro, remetendo à noite em Nova York */
+    color: #eee;                         /* Texto claro para contraste */
+}
+
+.container {
+    display: grid;  
+    /* Define as áreas do grid por nome: 
+       header em cima, aside à esquerda e main à direita, footer embaixo */
+    grid-template-areas:
+        "header header header"
+        "aside main main"
+        "footer footer footer";
+    grid-template-columns: 250px 1fr 1fr; /* 1ª coluna fixa (menu), 2 colunas flexíveis (conteúdo) */
+    gap: 15px;                            /* Espaço uniforme entre linhas e colunas */
+    padding: 20px;                        /* Espaço interno para afastar do container */
+    max-width: 1200px;                    /* Largura máxima em desktops */
+    margin: auto;                         /* Centraliza horizontalmente */
+    border: 2px solid #e41c24;            /* Borda vermelha, ecoando o traje do herói */
+    background-color: #112;               /* Fundo ligeiramente mais escuro que o body */
+}
+
+/* ===========================
+   CABEÇALHO (HEADER)
+   =========================== */
+
+.header {
+    grid-area: header;                    /* Posiciona na área “header” do grid */
+    background-color: #e41c24;            /* Vermelho vibrante do uniforme do Homem‑Aranha */
+    color: white;  
+    padding: 15px;  
+    text-align: center;                   /* Centraliza o texto */
+    font-size: 2em;                       /* Tamanho maior para o título */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Sombra dramática estilo letreiro de jornal */
+}
+
+/* ===========================
+   MENU LATERAL (NAVBAR)
+   =========================== */
+
+.navbar {
+    grid-area: aside;                     /* Posiciona na área “aside” do grid */
+    background-color: #1a1a1a;            /* Preto quase puro para destacar itens claros */
+    padding: 10px;  
+    border: 1px dashed #e41c24;           /* Tracejado vermelho lembrando teia */
+}
+
+.navbar ul {
+    list-style: none;                     /* Remove marcadores */
+    padding: 0;  
+    margin: 0;  
+}
+
+.navbar ul li {
+    padding: 10px 0;  
+    border-bottom: 1px solid #333;        /* Linha separadora estilo jornal */
+    color: #ccc;  
+    cursor: pointer;  
+}
+
+.navbar ul li:hover {
+    color: #e41c24;                       /* Fica vermelho ao passar o mouse */
+}
+
+/* ===========================
+   CONTEÚDO PRINCIPAL (MAIN)
+   =========================== */
+
+.main {
+    grid-area: main;                      /* Posiciona na área “main” do grid */
+    background-color: #fff;               /* Fundo branco para legibilidade */
+    color: #111;  
+    padding: 15px;  
+    border: 1px solid #333;               /* Moldura fina escura */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* Sombra suave para destacar o bloco */
+}
+
+article {
+    margin-bottom: 20px;                  /* Espaço entre artigos */
+}
+
+article h2 {
+    color: #e41c24;                       /* Títulos em vermelho */
+    margin-bottom: 5px;  
+    border-left: 4px solid #e41c24;       /* Linha de destaque lateral */
+    padding-left: 8px;                    /* Espaço entre a borda e o texto */
+    font-size: 1.5em;  
+}
+
+/* ===========================
+   RODAPÉ (FOOTER)
+   =========================== */
+
+.footer {
+    grid-area: footer;                    /* Posiciona na área “footer” do grid */
+    background-color: #e41c24;            /* Mesma paleta de vermelho do header */
+    color: white;  
+    padding: 10px;  
+    text-align: center;  
+    font-style: italic;                   /* Dá ar de citação de jornal antigo */
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+
+@media (max-width: 768px) {
+    .container {
+        /* Empilha as áreas verticalmente em telas menores */
+        grid-template-areas:
+            "header"
+            "aside"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;        /* Uma única coluna */
+    }
+}

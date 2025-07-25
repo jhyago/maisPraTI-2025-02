@@ -1,0 +1,53 @@
+<!DOCTYPE html> <!-- Declara o documento como HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma da página como Português do Brasil -->
+<head>
+  <meta charset="UTF-8"> <!-- Codificação de caracteres UTF‑8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade em dispositivos móveis -->
+  <title>Lista de Compras</title>
+  <link rel="stylesheet" href="style.css"> <!-- Vincula o CSS externo -->
+</head>
+<body>
+  <div class="container"> <!-- Container central do aplicativo -->
+    <h1>Lista de Compras</h1> <!-- Título principal -->
+
+    <!-- Formulário para adicionar itens -->
+    <form id="form-adicionar">
+      <input
+        id="input-item"
+        type="text"
+        placeholder="Adicione um item..."
+        required
+      >
+      <button type="submit">Adicionar</button>
+      <button id="btn-limpar" class="limpar" type="button">
+        Limpar Lista
+      </button>
+    </form>
+
+    <!-- Controles de filtro e ordenação -->
+    <div class="controles">
+      <label for="filtro">Mostrar:</label>
+      <select id="filtro">
+        <option value="all">Todos</option>
+        <option value="pending">Pendentes</option>
+        <option value="purchased">Comprados</option>
+      </select>
+
+      <label for="ordenar">Ordenar:</label>
+      <select id="ordenar">
+        <option value="insertion">Ordem de inserção</option>
+        <option value="alphabetical">Alfabética</option>
+        <option value="status">Por status</option>
+      </select>
+    </div>
+
+    <!-- Contador de itens -->
+    <p id="contador">Itens na lista: <span>0</span></p>
+
+    <!-- Lista onde os itens serão renderizados -->
+    <ul id="lista-itens"></ul>
+  </div>
+
+  <script src="app.js"></script> <!-- Vincula o JavaScript externo -->
+</body>
+</html>

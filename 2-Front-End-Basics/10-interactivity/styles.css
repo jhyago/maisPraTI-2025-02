@@ -1,0 +1,261 @@
+/* ===============================================
+   VARIABLES GLOBAIS
+   Definem cores, espaçamentos e transições
+   =============================================== */
+:root {
+  --color-primary: #3498db;        /* Azul principal para botões e links */
+  --color-primary-dark: #2980b9;   /* Tom escuro para hover */
+  --color-bg: #f9f9f9;             /* Fundo geral das seções */
+  --color-bg-alt: #eef2f5;         /* Fundo alternativo (hero, footer) */
+  --color-text: #333;              /* Cor padrão do texto */
+  --color-white: #fff;             /* Branco puro */
+  --spacing-xs: 0.5rem;            /* Espaço extra pequeno */
+  --spacing-sm: 1rem;              /* Espaço pequeno */
+  --spacing-md: 2rem;              /* Espaço médio */
+  --spacing-lg: 3rem;              /* Espaço grande */
+  --border-radius: 0.5rem;         /* Raio de borda padrão */
+  --transition-speed: 0.3s;        /* Velocidade padrão de transição */
+  --max-width: 1000px;             /* Largura máxima do container central */
+  --breakpoint-sm: 480px;          /* Mobile */
+  --breakpoint-md: 768px;          /* Tablet */
+  --breakpoint-lg: 1024px;         /* Desktop pequeno */
+}
+
+/* ===========================
+   RESET E BOX-SIZING
+   Remove padrões e padroniza box model
+   =========================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Inclui padding e border na largura/altura */
+}
+
+/* ===========================
+   ESTILO BASE DO BODY
+   Define tipografia, fundo e alinhamento
+   =========================== */
+body {
+  font-family: 'Trebuchet MS', sans-serif; /* Fonte limpa e legível */
+  background-color: var(--color-bg);       /* Fundo suave para todo o site */
+  color: var(--color-text);                /* Cor padrão dos textos */
+  line-height: 1.6;                        /* Espaço entre linhas confortável */
+  min-height: 100vh;                       /* Garante altura mínima de tela cheia */
+}
+
+/* ===========================
+   CONTAINER CENTRALIZADO
+   Limita largura e centraliza conteúdo
+   =========================== */
+.container {
+  width: 90%;                  /* Ocupar 90% da viewport */
+  max-width: var(--max-width); /* Limita largura máxima */
+  margin: 0 auto;              /* Centraliza horizontalmente */
+  padding: 0 var(--spacing-sm);/* Padding lateral */
+}
+
+/* ===========================
+   CABEÇALHO FIXO
+   Sticky no topo com sombra suave
+   =========================== */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;              /* Mantém à frente do conteúdo */
+}
+
+/* ===========================
+   HEADER CONTAINER
+   Layout flex para logo, nav e toggle
+   =========================== */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+}
+
+/* ===========================
+   BOTÃO HAMBURGER (NAV-TOGGLE)
+   Aparece apenas em telas pequenas
+   =========================== */
+.nav-toggle {
+  display: none;              /* Oculto em desktop */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+}
+.nav-toggle:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+/* ===========================
+   NAVEGAÇÃO PRINCIPAL
+   Flexível em desktop, colapsável em mobile
+   =========================== */
+.nav {
+  display: flex;              /* Menu horizontal */
+}
+.nav-list {
+  display: flex;
+  list-style: none;           /* Remove marcadores */
+}
+.nav-item + .nav-item {
+  margin-left: var(--spacing-sm); /* Espaço entre itens */
+}
+.nav a {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color var(--transition-speed);
+}
+.nav a:hover,
+.nav a:focus {
+  color: var(--color-primary);
+}
+
+/* ===========================
+   HERO (SEÇÃO DE BOAS-VINDAS)
+   Fundo alternativo e texto centralizado
+   =========================== */
+.hero {
+  background-color: var(--color-bg-alt);
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+}
+.hero .btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: background var(--transition-speed);
+}
+.hero .btn:hover,
+.hero .btn:focus {
+  background-color: var(--color-primary-dark);
+}
+
+/* ===========================
+   SERVIÇOS (CARDS)
+   Grid responsivo com gap
+   =========================== */
+.services {
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Ajusta colunas conforme espaço */
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+.card {
+  background: var(--color-white);
+  padding: var(--spacing-sm);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.card:hover,
+.card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ===========================
+   CONTATO (FORMULÁRIO)
+   Espaçamento e estilos de campos
+   =========================== */
+.contact {
+  padding: var(--spacing-lg) 0;
+}
+.form-group {
+  margin-bottom: var(--spacing-sm);
+}
+.form-group label {
+  display: block;                      /* Ocupa linha inteira */
+  margin-bottom: var(--spacing-xs);    /* Espaço abaixo do label */
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-xs);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-speed);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;                       /* Remove outline padrão */
+}
+.contact .btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+.contact .btn:hover,
+.contact .btn:focus {
+  background-color: var(--color-primary-dark);
+}
+
+/* ===========================
+   RODAPÉ
+   Fundo alternativo e texto centralizado
+   =========================== */
+.footer {
+  background-color: var(--color-bg-alt);
+  text-align: center;
+  padding: var(--spacing-sm) 0;
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   Ajustes para mobile/tablet
+   =========================== */
+@media (max-width: var(--breakpoint-md)) {
+  .nav-toggle {
+    display: block;                   /* Exibe hamburger em tablets e mobile */
+  }
+  .nav {
+    flex-direction: column;           /* Menu vertical */
+    overflow: hidden;                 /* Esconde itens fora do container */
+    max-height: 0;                    /* Menu colapsado inicialmente */
+    transition: max-height var(--transition-speed) ease;
+    width: 100%;
+  }
+  .nav.open {
+    max-height: 300px;                /* Altura suficiente para mostrar itens */
+  }
+  .nav-list {
+    flex-direction: column;           /* Lista em coluna */
+  }
+  .nav-item + .nav-item {
+    margin-left: 0;                   /* Remove margem horizontal */
+    margin-top: var(--spacing-xs);    /* Adiciona margem vertical */
+  }
+}
+
