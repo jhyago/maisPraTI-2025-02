@@ -7,7 +7,8 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.5;
-    color: #333;
+    color: #fff;
+    background-color: #171d25;
 }
 
 .container {
@@ -17,7 +18,6 @@ body {
 }
 
 .header {
-    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -38,7 +38,7 @@ nav li +li {
 
 .nav a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
     padding: 1rem;
     display: block;
 }
@@ -72,14 +72,35 @@ nav li +li {
 }
 
 .hero {
-    background-color: #f4f4f4;
     padding: 4rem 0;
     text-align: center;
+    background-image: url("https://shared.akamai.steamstatic.com/store_item_assets/steam/clusters/sale_summer2025/36a01fe4331ab0ca600ff205/page_bg_portuguese.webp?t=1750963512"); /* Adiciona imagem no fundo */
+    background-size: cover;
+    color: #fff;
+}
+
+.hero h1 {
+    background-color: #171d25;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.hero .container {
+    border-radius: 8px;
+    padding: 10px;
+    width: 30%;
 }
 
 .hero .btn {
     margin-top: 1rem;
     text-decoration: none;
+    transition: 0.5s; /* Adiciona transição ao retirar o mouse */
+}
+
+.hero .btn:hover {
+    background-color: #fff;
+    color: #333;
+    transition: 0.5s; /* Adiciona transição ao passar o mouse */
 }
 
 .services {
@@ -100,6 +121,10 @@ nav li +li {
     margin-top: 1rem;
 }
 
+.card figure img {
+    width: 100%;
+    border-radius: 4px;
+}
 
 .contact {
     padding: 2rem 0;
@@ -128,10 +153,11 @@ nav li +li {
     padding: 0.5rem;
     text-decoration: none;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .footer {
-    background-color: #f4f4f4;
+    background-color: #222830;
     text-align: center;
     padding: 1rem 0;
 }
