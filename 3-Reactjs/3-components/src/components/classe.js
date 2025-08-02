@@ -20,3 +20,7 @@ class Cachorro extends Animal {
         console.log(`${this.nome} faz au au`)
     }
 }
+
+let meuPet = new Cachorro('João', 'Husky')
+
+meuPet.falar()
