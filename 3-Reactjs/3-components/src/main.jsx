@@ -6,6 +6,6 @@ import ViaCepFunctional from './components/ViaCepFunctional'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ViaCepFunctional />
+    <ViaCepFunctional cep="41900020"/>
   </StrictMode>,
 )
