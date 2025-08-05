@@ -21,7 +21,7 @@ function ViaCepFunctional({ cep }) {
             setErro(err.message)
         })
         .finally(() => setCarregando(false))
-    }, [cep])
+    }, [])
 
 
     return(
