@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import FetchUser from './components/FetchUser'
+import AxiosInterceptor from './components/AxiosInterceptor'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <FetchUser />
+    <AxiosInterceptor />
   </StrictMode>,
 )
