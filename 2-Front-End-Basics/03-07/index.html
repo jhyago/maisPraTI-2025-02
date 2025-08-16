@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Interativo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <!-- <a href="#" class="logo">Marca</a> -->
+            <button id="navToggle" class="nav-toggle" aria-label="Abrir Menu">+</button>
+            <nav id="navMenu" class="nav">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>PROMOÇÃO DE VERÃO</h1>
+            <a href="" class="btn">Fale Conosco</a>
+        </div>
+    </section>
+
+    <section id="services" class="services container">
+        <h2>Jogos em promoção</h2>
+        <div class="cards">
+            <div class="card">
+                <figure>
+                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2651280/116c666b18f9fba70156f2ea210f23b1c896dc0f/hero_capsule.jpg?t=1750954033" alt="">
+                </figure>
+                <h3>Spider-Man 2</h3>
+                <p>R$ 199.90</p>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/hero_capsule.jpg?t=1750909504" alt="">
+                </figure>
+                <h3>God of War Ragnarok</h3>
+                <p>R$ 199.92</p>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/hero_capsule.jpg?t=1720558643" alt="">
+                </figure>
+                <h3>Red Dead Redemption 2</h3>
+                <p>R$ 119.90</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact container">
+        <h2>Está com problemas? Entre em contato!</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Sua mensagem</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Enviar Mensagem</button>
+        </form>
+    </section>  
+
+    <footer class="footer">
+        <div class="container">
+            <p>2025 Nome da Marca. Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
