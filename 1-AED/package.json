@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jhyago/DevFullStack-T1-2025#readme",
   "dependencies": {
+    "axios": "^1.11.0",
     "prompt-sync": "^4.2.0"
   }
 }
