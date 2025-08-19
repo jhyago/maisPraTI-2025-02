@@ -1,0 +1,11 @@
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.sr-only {
+    position: absolute; 
+    width: 1px;
+    height: 1px;
+}
