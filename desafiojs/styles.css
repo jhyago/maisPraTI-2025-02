@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+main {
+    background-color: #181e23;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h1 {
+    color: #50a9ef;
+}
+
+.esquerda {
+    display: flex;
+}
+
+.esquerda img {
+    width: 50px;
+}
+
+.principal {
+    background-color: #212b32;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.principal div button {
+    background-color: #343e41;
+}
