@@ -1,12 +1,15 @@
-import Header from "./components/Header"
+import { ThemeProvider } from "./context/ThemeContext"
+import ThemeToggle from "./components/ThemeToggle"
+import ThemeStatus from "./components/ThemeStatus"
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      <Header />
-    </>
+    <ThemeProvider>
+      <div style={{ padding: 20 }}>
+        <h1>Mini-app de Tema</h1>
+        <ThemeToggle />
+        <ThemeStatus />
+      </div>
+    </ThemeProvider>
   )
 }
-
-export default App

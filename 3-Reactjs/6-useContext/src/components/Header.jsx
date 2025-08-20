@@ -1,4 +1,4 @@
-import { useAuth } from "/Users/jaquesantunes/Documents/maisPraTI-2025-02/3-Reactjs/6-useContext/src/context/auth.jsx"
+import { useAuth } from "../context/auth"
 
 function Header() {
     const { user, login, logout } = useAuth()
@@ -7,10 +7,10 @@ function Header() {
         <header>
             {user ? (
                 <>
-                    <span>Olá, {user.name}</span>
-                    <button onClick={logout}>Sair!</button>
+                    <span>Olá, {user.name}!</span>
+                    <button onClick={logout}>Sair</button>
                 </>
-            ) : (
+            ): (
                 <button onClick={() => login("Jaques")}>Entrar</button>
             )}
         </header>
