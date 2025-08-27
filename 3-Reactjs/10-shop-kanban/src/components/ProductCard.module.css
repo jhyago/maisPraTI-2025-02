@@ -1,0 +1,164 @@
+/* Estilos do card de produto com responsividade, acessibilidade e dark mode */
+
+.card { /* Contêiner do card */
+  position: relative; /* Necessário para posicionar badges */
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Empilha conteúdo verticalmente */
+  background: var(--color-surface); /* Cor de superfície do cartão */
+  border: 1px solid var(--color-border); /* Borda sutil */
+  border-radius: 16px; /* Cantos arredondados */
+  box-shadow: var(--shadow-xs); /* Sombra inicial suave */
+  transition: transform 200ms ease, box-shadow 200ms ease, opacity 200ms ease; /* Transições suaves */
+} /* Fim de .card */
+
+.card:hover { /* Estado de hover do card */
+  transform: translateY(-2px); /* Elevação sutil usando transform (performático) */
+  box-shadow: var(--shadow-md); /* Sombra mais forte no hover */
+} /* Fim do hover */
+
+.card:focus-within { /* Quando algum foco está dentro do card */
+  outline: 3px solid var(--color-focus); /* Contorno de alto contraste */
+  outline-offset: 4px; /* Destaca o foco sem colar no card */
+} /* Fim do foco visível */
+
+.mediaLink { /* Link que envolve a imagem */
+  border-top-left-radius: 16px; /* Arredonda canto superior esquerdo */
+  border-top-right-radius: 16px; /* Arredonda canto superior direito */
+  overflow: hidden; /* Esconde overflow para respeitar o raio */
+} /* Fim de .mediaLink */
+
+.media { /* Imagem do produto */
+  width: 100%; /* Ocupa toda a largura do card */
+  aspect-ratio: 1 / 1; /* Garante proporção 1:1 */
+  object-fit: cover; /* Cobre todo o espaço sem distorcer */
+  background: var(--color-skeleton); /* Cor de fundo enquanto carrega */
+  display: block; /* Exibe como bloco */
+  transition: opacity 200ms ease; /* Transição suave de opacidade */
+} /* Fim de .media */
+
+.badges { /* Contêiner das badges */
+  position: absolute; /* Posicionamento absoluto sobre a imagem */
+  top: 8px; /* Distância do topo */
+  left: 8px; /* Distância da esquerda */
+  display: flex; /* Layout flex */
+  gap: 6px; /* Espaçamento entre badges */
+  z-index: 2; /* Garante que apareçam sobre a imagem */
+} /* Fim de .badges */
+
+.badge { /* Estilo de cada badge */
+  font-size: 12px; /* Tamanho do texto */
+  font-weight: 700; /* Peso forte para destaque */
+  padding: 6px 8px; /* Espaçamento interno */
+  border-radius: 999px; /* Cápsula arredondada */
+  background: var(--color-accent); /* Fundo com cor de destaque */
+  color: #ffffff; /* Texto branco para contraste (≥ 4.5:1) */
+} /* Fim de .badge */
+
+.content { /* Área textual do card */
+  padding: 12px; /* Espaçamento interno */
+  display: flex; /* Layout flex */
+  flex-direction: column; /* Empilha verticalmente */
+  gap: 8px; /* Espaçamento entre elementos */
+} /* Fim de .content */
+
+.title { /* Título do produto */
+  font-size: 16px; /* Tamanho do texto */
+  line-height: 1.3; /* Altura de linha legível */
+  font-weight: 600; /* Peso intermediário */
+  color: var(--color-fg-strong); /* Cor de texto forte */
+  display: -webkit-box; /* Necessário para line-clamp em WebKit */
+  -webkit-line-clamp: 2; /* Limita a 2 linhas */
+  -webkit-box-orient: vertical; /* Orienta o box verticalmente */
+  overflow: hidden; /* Esconde o excesso de texto */
+} /* Fim de .title */
+
+.price { /* Preço do produto */
+  font-size: 18px; /* Tamanho do preço */
+  font-weight: 700; /* Destaque para preço */
+  color: var(--color-fg-strong); /* Cor forte para contraste */
+} /* Fim de .price */
+
+.rating { /* Área de estrelas de avaliação */
+  letter-spacing: 2px; /* Aumenta o espaçamento para legibilidade */
+  color: var(--color-star); /* Cor das estrelas */
+  user-select: none; /* Evita seleção acidental */
+} /* Fim de .rating */
+
+.actions { /* Contêiner de ações (botão) */
+  margin-top: 4px; /* Espaço acima */
+  display: flex; /* Layout flex */
+  align-items: center; /* Alinha verticalmente */
+} /* Fim de .actions */
+
+.button { /* Estilo base do botão */
+  appearance: none; /* Remove estilos nativos */
+  border: 1px solid var(--color-border-strong); /* Borda de alto contraste */
+  padding: 10px 12px; /* Espaçamento interno */
+  border-radius: 12px; /* Cantos arredondados */
+  font-weight: 700; /* Peso do texto */
+  cursor: pointer; /* Cursor de mão */
+  transition: transform 180ms ease, opacity 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease; /* Transições */
+  outline: none; /* Remove outline padrão (usaremos focus-visible) */
+} /* Fim de .button */
+
+.button:focus-visible { /* Estilo de foco acessível */
+  outline: 3px solid var(--color-focus); /* Contorno visível */
+  outline-offset: 2px; /* Espaço entre contorno e botão */
+} /* Fim do foco */
+
+.button:disabled, .button[aria-disabled='true'] { /* Estado desabilitado */
+  opacity: 0.6; /* Indica indisponibilidade visualmente */
+  cursor: not-allowed; /* Cursor apropriado */
+} /* Fim do disabled */
+
+.solid { /* Variante sólida do botão */
+  background: var(--color-accent); /* Fundo com cor de destaque */
+  color: #ffffff; /* Texto branco para contraste (≥ 4.5:1) */
+  border-color: var(--color-accent); /* Borda na mesma cor do fundo */
+} /* Fim de .solid */
+
+.solid:hover { /* Hover na variante sólida */
+  transform: translateY(-1px); /* Elevação sutil */
+} /* Fim do hover sólido */
+
+.outline { /* Variante com contorno */
+  background: transparent; /* Fundo transparente */
+  color: var(--color-accent); /* Texto na cor de destaque */
+  border-color: var(--color-accent); /* Borda na cor de destaque */
+} /* Fim de .outline */
+
+.outline:hover { /* Hover na outline */
+  transform: translateY(-1px); /* Elevação suave */
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent); /* Sombra de fundo leve (suporte onde disponível) */
+} /* Fim do hover outline */
+
+.ghost { /* Variante ghost (discreta) */
+  background: var(--color-surface-2); /* Fundo sutil */
+  color: var(--color-fg); /* Texto na cor padrão de texto */
+  border-color: var(--color-border); /* Borda sutil */
+} /* Fim de .ghost */
+
+.ghost:hover { /* Hover na ghost */
+  transform: translateY(-1px); /* Elevação sutil */
+  background: var(--color-surface-3); /* Fundo um pouco mais contrastante */
+} /* Fim do hover ghost */
+
+.skeleton { /* Estilo base do skeleton loading */
+  position: relative; /* Necessário para pseudo-elemento animado */
+  background: var(--color-skeleton); /* Cor de base do skeleton */
+  overflow: hidden; /* Esconde overflow da animação */
+} /* Fim de .skeleton */
+
+.skeleton::after { /* Brilho animado do skeleton */
+  content: ''; /* Cria o pseudo-elemento */
+  position: absolute; /* Posiciona sobre o elemento */
+  inset: 0; /* Ocupa toda a área */
+  transform: translateX(-100%); /* Começa à esquerda */
+  background: linear-gradient(90deg, transparent, var(--color-skeleton-highlight), transparent); /* Gradiente móvel */
+  animation: shimmer 1.2s infinite; /* Animação contínua */
+} /* Fim do pseudo-elemento */
+
+@keyframes shimmer { /* Define a animação do skeleton */
+  100% { transform: translateX(100%); } /* Move o brilho para a direita */
+} /* Fim da animação */
+

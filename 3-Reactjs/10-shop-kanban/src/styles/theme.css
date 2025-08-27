@@ -1,0 +1,62 @@
+/* CSS global: variáveis de tema, reset básico e sombras */
+/* Reset mínimo para consistência */
+* { /* Seleciona todos os elementos */
+  box-sizing: border-box; /* Inclui borda e padding no cálculo de largura/altura */
+} /* Fim do reset */
+
+html, body { /* Estilos para html e body */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove preenchimentos padrão */
+  background: var(--color-bg); /* Define o fundo com a variável de tema */
+  color: var(--color-fg); /* Define a cor do texto com a variável de tema */
+} /* Fim de estilos base */
+
+:root { /* Variáveis padrão (tema claro) */
+  --color-bg: #f7f7f8; /* Fundo da página */
+  --color-fg: #111114; /* Texto padrão */
+  --color-fg-strong: #0a0a0d; /* Texto forte */
+  --color-surface: #ffffff; /* Cor de superfície (cards/nav) */
+  --color-surface-2: #f1f1f3; /* Superfície secundária */
+  --color-surface-3: #e7e7ea; /* Superfície terciária */
+  --color-border: #dcdce1; /* Cor de borda sutil */
+  --color-border-strong: #bdbdc7; /* Borda de alto contraste */
+  --color-accent: #5b7cfa; /* Cor de destaque (botões/badges) */
+  --color-focus: #ff8f1f; /* Cor do contorno de foco (alto contraste) */
+  --color-star: #e6b800; /* Cor das estrelas de rating */
+  --color-skeleton: #e9e9ee; /* Base do skeleton */
+  --color-skeleton-highlight: #ffffffa6; /* Destaque do skeleton */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05); /* Sombra muito sutil */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.06); /* Sombra pequena */
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.12); /* Sombra média para hover */
+} /* Fim das variáveis do tema claro */
+
+[data-theme='dark'] { /* Variáveis para tema escuro */
+  --color-bg: #0e0f12; /* Fundo escuro */
+  --color-fg: #e9e9ef; /* Texto claro */
+  --color-fg-strong: #ffffff; /* Texto forte claro */
+  --color-surface: #15161a; /* Superfície escura */
+  --color-surface-2: #1b1c22; /* Superfície secundária escura */
+  --color-surface-3: #22242b; /* Superfície terciária escura */
+  --color-border: #2a2c34; /* Borda escura sutil */
+  --color-border-strong: #3b3e48; /* Borda de alto contraste no escuro */
+  --color-accent: #7aa2ff; /* Destaque ajustado para escuro */
+  --color-focus: #ffd166; /* Foco visível em escuro */
+  --color-star: #ffd166; /* Estrelas visíveis em escuro */
+  --color-skeleton: #1c1d24; /* Base do skeleton escuro */
+  --color-skeleton-highlight: #2a2c34; /* Destaque do skeleton escuro */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.4); /* Ajuste de sombras para escuro */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.5); /* Sombra pequena em escuro */
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.6); /* Sombra média em escuro */
+} /* Fim das variáveis do tema escuro */
+
+/* Preferência do usuário: aplica tema escuro por mídia (fallback) */
+@media (prefers-color-scheme: dark) { /* Consulta de mídia */
+  :root:not([data-theme='light']) { /* Se o usuário não setou explicitamente light */
+    color-scheme: dark; /* Informa ao navegador que estamos em esquema escuro */
+  } /* Fim do seletor */
+} /* Fim do media */
+
+/* Usa color-scheme para integrar com UI nativa (inputs, etc) */
+:root, [data-theme='dark'] { /* Tanto no claro como no escuro */
+  color-scheme: light dark; /* Permite alternância de aparência nativa */
+} /* Fim do color-scheme */

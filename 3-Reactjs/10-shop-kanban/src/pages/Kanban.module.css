@@ -1,0 +1,203 @@
+/* Estilos do quadro Kanban com suporte a tema, responsividade e animações */
+.wrapper { /* Contêiner da página */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Empilha elementos verticalmente */
+  gap: 16px; /* Espaço entre barra e board */
+} /* Fim de .wrapper */
+
+.title { /* Título da página */
+  margin: 0 0 8px 0; /* Margens */
+  font-size: 24px; /* Tamanho do texto */
+  color: var(--color-fg-strong); /* Cor forte */
+} /* Fim de .title */
+
+.toolbar { /* Barra de controles (adicionar/filtrar) */
+  display: grid; /* Usa grid para alinhamento */
+  grid-template-columns: 1fr 320px; /* Colunas: input principal e filtro */
+  gap: 12px; /* Espaço entre campos */
+} /* Fim de .toolbar */
+
+@media (max-width: 720px) { /* Em telas pequenas */
+  .toolbar { /* Ajusta layout */
+    grid-template-columns: 1fr; /* Uma coluna */
+  } /* Fim do ajuste */
+} /* Fim do media query */
+
+.input { /* Estilo dos inputs */
+  height: 44px; /* Altura confortável */
+  padding: 10px 12px; /* Espaçamento interno */
+  border-radius: 12px; /* Cantos arredondados */
+  border: 1px solid var(--color-border); /* Borda visível */
+  background: var(--color-surface); /* Fundo conforme tema */
+  color: var(--color-fg); /* Texto */
+  outline: none; /* Remove outline padrão */
+  transition: border-color 180ms ease, box-shadow 180ms ease; /* Transições suaves */
+} /* Fim de .input */
+
+.input:focus-visible { /* Estado de foco acessível */
+  border-color: var(--color-border-strong); /* Borda mais forte */
+  box-shadow: 0 0 0 3px var(--color-focus); /* Anel de foco de alto contraste */
+} /* Fim do foco */
+
+.board { /* Área que contém todas as colunas */
+  display: grid; /* Usa grid */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 colunas iguais */
+  gap: 16px; /* Espaço entre colunas */
+  align-items: start; /* Alinha topo */
+} /* Fim de .board */
+
+@media (max-width: 900px) { /* Breakpoint para responsividade */
+  .board { /* Ajuste */
+    grid-template-columns: 1fr; /* Pilha colunas verticalmente */
+  } /* Fim do ajuste */
+} /* Fim do media query */
+
+.column { /* Estilo de cada coluna */
+  background: var(--color-surface); /* Fundo */
+  border: 1px solid var(--color-border); /* Borda sutil */
+  border-radius: 16px; /* Cantos arredondados */
+  min-height: 200px; /* Altura mínima */
+  padding: 8px; /* Espaço interno */
+  box-shadow: var(--shadow-xs); /* Sombra leve */
+  transition: background 180ms ease, border-color 180ms ease; /* Transições */
+} /* Fim de .column */
+
+.columnHeader { /* Cabeçalho da coluna */
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: space-between; /* Espaça título e contador */
+  padding: 8px 8px 6px; /* Espaçamento interno */
+  border-bottom: 1px dashed var(--color-border); /* Separador */ 
+} /* Fim de .columnHeader */
+
+.columnTitle { /* Título da coluna */
+  margin: 0; /* Remove margens padrão */
+  font-size: 16px; /* Tamanho do texto */
+  color: var(--color-fg-strong); /* Cor forte */
+} /* Fim de .columnTitle */
+
+.count { /* Contador de tarefas */
+  display: inline-flex; /* Layout inline flex */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: center; /* Centraliza conteúdo */
+  min-width: 28px; /* Largura mínima */
+  height: 28px; /* Altura */
+  padding: 0 6px; /* Espaço horizontal */
+  font-weight: 700; /* Destaca número */
+  border-radius: 999px; /* Cápsula */
+  background: var(--color-surface-2); /* Fundo do badge */
+  border: 1px solid var(--color-border); /* Borda */
+  color: var(--color-fg); /* Cor do texto */
+} /* Fim de .count */
+
+.list { /* Lista de tarefas */
+  list-style: none; /* Remove marcadores */
+  padding: 8px; /* Espaçamento interno */
+  margin: 0; /* Remove margens */
+  display: grid; /* Usa grid */
+  gap: 8px; /* Espaço entre cartões */
+} /* Fim de .list */
+
+.card { /* Item da lista (li) */
+  margin: 0; /* Remove margens extras */
+} /* Fim de .card */
+
+.cardInner { /* Cartão de tarefa */
+  background: var(--color-surface-2); /* Fundo secundário */
+  border: 1px solid var(--color-border); /* Borda sutil */
+  border-radius: 12px; /* Cantos arredondados */
+  padding: 12px; /* Espaço interno */
+  box-shadow: var(--shadow-xs); /* Sombra inicial */
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease; /* Transições animadas */
+} /* Fim de .cardInner */
+
+.cardInner:focus, .cardInner:focus-visible { /* Foco acessível no cartão */
+  outline: 3px solid var(--color-focus); /* Anel de foco */
+  outline-offset: 2px; /* Distância do anel */
+} /* Fim do foco */
+
+.cardInner:hover { /* Hover do cartão */
+  transform: translateY(-1px); /* Elevação sutil */
+  box-shadow: var(--shadow-sm); /* Sombra mais forte */
+} /* Fim do hover */
+
+.badge { /* Tag da tarefa */
+  display: inline-block; /* Exibição inline-block */
+  font-size: 12px; /* Tamanho do texto */
+  font-weight: 700; /* Peso forte */
+  padding: 4px 8px; /* Espaço interno */
+  border-radius: 999px; /* Cápsula arredondada */
+  background: var(--color-accent); /* Fundo de destaque */
+  color: #fff; /* Texto branco (alto contraste) */
+  margin-bottom: 6px; /* Espaço abaixo */
+} /* Fim de .badge */
+
+.cardTitle { /* Título da tarefa */
+  margin: 0 0 8px 0; /* Margens */
+  font-size: 14px; /* Tamanho do texto */
+  color: var(--color-fg-strong); /* Cor forte */
+} /* Fim de .cardTitle */
+
+.cardActions { /* Contêiner dos botões */
+  display: flex; /* Layout flex */
+  gap: 8px; /* Espaço entre botões */
+} /* Fim de .cardActions */
+
+.btn { /* Estilo base dos botões */
+  appearance: none; /* Remove estilos nativos */
+  border: 1px solid var(--color-border-strong); /* Borda de alto contraste */
+  padding: 8px 10px; /* Espaço interno */
+  border-radius: 10px; /* Cantos arredondados */
+  font-weight: 700; /* Peso do texto */
+  cursor: pointer; /* Cursor de mão */
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease; /* Transições */
+  outline: none; /* Removemos outline padrão para usar focus-visible */
+} /* Fim de .btn */
+
+.btn:focus-visible { /* Foco visível e acessível */
+  outline: 3px solid var(--color-focus); /* Anel de foco */
+  outline-offset: 2px; /* Distância do anel */
+} /* Fim do foco */
+
+.solid { /* Variante sólida */
+  background: var(--color-accent); /* Fundo de destaque */
+  color: #fff; /* Texto branco (contraste) */
+  border-color: var(--color-accent); /* Borda na mesma cor */
+} /* Fim de .solid */
+
+.solid:hover { /* Hover da sólida */
+  transform: translateY(-1px); /* Elevação */
+} /* Fim do hover sólida */
+
+.outline { /* Variante contornada */
+  background: transparent; /* Sem fundo */
+  color: var(--color-accent); /* Texto na cor de destaque */
+  border-color: var(--color-accent); /* Borda destacada */
+} /* Fim de .outline */
+
+.outline:hover { /* Hover da outline */
+  transform: translateY(-1px); /* Elevação */
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent); /* Realce suave */
+} /* Fim do hover outline */
+
+.ghost { /* Variante ghost */
+  background: var(--color-surface-3); /* Fundo discreto */
+  color: var(--color-fg); /* Texto padrão */
+  border-color: var(--color-border); /* Borda sutil */
+} /* Fim de .ghost */
+
+.ghost:hover { /* Hover ghost */
+  transform: translateY(-1px); /* Elevação */
+} /* Fim do hover ghost */
+
+.visuallyHidden { /* Classe utilitária de acessibilidade */
+  position: absolute; /* Remove do fluxo */
+  width: 1px; /* Largura mínima */
+  height: 1px; /* Altura mínima */
+  padding: 0; /* Sem padding */
+  margin: -1px; /* Move para fora */
+  overflow: hidden; /* Esconde overflow */
+  clip: rect(0, 0, 0, 0); /* Recorte */
+  white-space: nowrap; /* Não quebra linha */
+  border: 0; /* Sem borda */
+} /* Fim de .visuallyHidden */
