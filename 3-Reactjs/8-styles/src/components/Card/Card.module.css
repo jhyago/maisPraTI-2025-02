@@ -1,0 +1,10 @@
+.title {
+    font-weight: 800;
+    margin: 0 0 8px;
+}
+
+.root {
+    border: 1px solid #e5e5e5;
+    border-radius: var(--radius);
+    padding: 14px;
+}

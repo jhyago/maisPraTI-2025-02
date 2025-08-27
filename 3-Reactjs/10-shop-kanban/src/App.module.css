@@ -1,0 +1,50 @@
+/* Estilos específicos do componente App usando CSS Modules */
+
+.page { /* Contêiner da página */
+  min-height: 100dvh; /* Garante altura mínima em viewport dinâmica */
+  background: var(--color-bg); /* Usa a cor de fundo do tema */
+  color: var(--color-fg); /* Usa a cor de texto do tema */
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; /* Define a família de fontes */
+} /* Fim de .page */
+
+.main { /* Área principal */
+  max-width: 1200px; /* Largura máxima para conteúdo */
+  margin: 80px auto 48px; /* Centraliza e cria espaço abaixo da navbar fixa */
+  padding: 0 16px; /* Espaçamento lateral */
+} /* Fim de .main */
+
+.grid { /* Grid de produtos */
+  display: grid; /* Usa layout em grid */
+  gap: 16px; /* Espaçamento entre cards */
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 coluna padrão (≤480px) */
+} /* Fim de .grid */
+
+@media (min-width: 481px) { /* Breakpoint 481–768px */
+  .grid { /* Seleciona o grid */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colunas */
+  } /* Fim do ajuste para 2 colunas */
+} /* Fim do media query */
+
+@media (min-width: 769px) { /* Breakpoint 769–1024px */
+  .grid { /* Seleciona o grid */
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 colunas */
+  } /* Fim do ajuste para 3 colunas */
+} /* Fim do media query */
+
+@media (min-width: 1025px) { /* Breakpoint ≥1025px */
+  .grid { /* Seleciona o grid */
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 colunas */
+  } /* Fim do ajuste para 4 colunas */
+} /* Fim do media query */
+
+.visuallyHidden { /* Classe para esconder visualmente mantendo acessível */
+  position: absolute; /* Remove do fluxo normal */
+  width: 1px; /* Largura mínima */
+  height: 1px; /* Altura mínima */
+  padding: 0; /* Remove padding */
+  margin: -1px; /* Move para fora da tela */
+  overflow: hidden; /* Esconde overflow */
+  clip: rect(0, 0, 0, 0); /* Recorta a área visível */
+  white-space: nowrap; /* Evita quebra de linha */
+  border: 0; /* Remove borda */
+} /* Fim de .visuallyHidden */

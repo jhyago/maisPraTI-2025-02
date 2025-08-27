@@ -1,0 +1,12 @@
+.btn {
+    padding: 12px 16px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(0.90);
+}

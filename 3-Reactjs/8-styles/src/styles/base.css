@@ -1,0 +1,18 @@
+:root {
+    --bg: #fff;
+    --fg: #0f0f0f;
+    --radius: 12px;
+    --space-2: 8px;
+    --space-3: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, sans-serif;
+}
