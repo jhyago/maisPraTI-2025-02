@@ -1,0 +1,125 @@
+/* Estilos da Navbar com links de navegação e tema */
+.header {
+  position: fixed; /* Fixa no topo */
+  top: 0; /* Alinha no topo */
+  inset-inline: 0; /* Ocupa largura total */
+  height: 64px; /* Altura */
+  background: var(--color-surface); /* Fundo */
+  border-bottom: 1px solid var(--color-border); /* Linha inferior */
+  z-index: 100; /* Acima do conteúdo */
+  box-shadow: var(--shadow-sm); /* Separação visual */
+}
+
+.content {
+  max-width: 1200px; /* Largura máxima */
+  height: 100%; /* Ocupa altura */
+  margin: 0 auto; /* Centraliza */
+  padding: 0 16px; /* Espaço lateral */
+  display: flex; /* Layout flex */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between; /* Espaça extremos */
+  gap: 16px; /* Espaço entre itens */
+}
+
+.logo {
+  display: inline-flex; /* Em linha com flex */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 8px; /* Espaço ícone-texto */
+  color: var(--color-fg-strong); /* Cor do texto */
+  text-decoration: none; /* Sem sublinhado */
+  font-weight: 700; /* Peso forte */
+  letter-spacing: -0.02em; /* Ajuste fino */
+}
+
+.dot { color: var(--color-accent); } /* Ponto decorativo */
+
+.actions {
+  display: inline-flex; /* Layout inline flex */
+  align-items: center; /* Alinha verticalmente */
+  gap: 12px; /* Espaço entre blocos */
+}
+
+.navLinks {
+  display: inline-flex; /* Linha de links */
+  align-items: center; /* Alinhamento vertical */
+  gap: 10px; /* Espaçamento entre links */
+  background: var(--color-surface-2); /* Fundo leve */
+  border: 1px solid var(--color-border); /* Borda sutil */
+  border-radius: 999px; /* Pílula */
+  padding: 6px 8px; /* Espaço interno */
+}
+
+.navLink {
+  text-decoration: none; /* Remove sublinhado */
+  padding: 6px 10px; /* Espaço interno */
+  border-radius: 999px; /* Pílula */
+  color: var(--color-fg); /* Cor do link */
+  font-weight: 600; /* Peso médio */
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease; /* Transições suaves */
+}
+
+.navLink:hover {
+  transform: translateY(-1px); /* Elevação sutil */
+  background: var(--color-surface-3); /* Fundo no hover */
+}
+
+.active {
+  background: var(--color-accent); /* Fundo de destaque ao ativo */
+  color: #fff; /* Texto branco para contraste */
+}
+
+.themeToggle {
+  position: relative; /* Para o polegar */
+  display: inline-flex; /* Layout flex */
+  align-items: center; /* Alinha verticalmente */
+  gap: 8px; /* Espaço interno entre itens */
+  height: 36px; /* Altura */
+  padding: 0 10px 0 40px; /* Mais espaço à esquerda pro trilho */
+  background: var(--color-surface-2); /* Fundo */
+  border: 1px solid var(--color-border); /* Borda */
+  border-radius: 999px; /* Pílula */
+  cursor: pointer; /* Cursor de mão */
+  transition: transform 200ms ease, opacity 200ms ease; /* Transições */
+  color: var(--color-fg); /* Cor do texto */
+}
+
+.themeToggle:focus-visible {
+  outline: 3px solid var(--color-focus); /* Foco visível */
+  outline-offset: 2px; /* Distância do foco */
+}
+
+.themeToggle:hover { transform: translateY(-1px); } /* Elevação no hover */
+
+.themeText { font-size: 14px; font-weight: 600; } /* Texto do toggle */
+
+.themeThumb {
+  position: absolute; /* Posiciona dentro do botão */
+  left: 6px; /* Distância esquerda */
+  width: 26px; /* Largura do polegar */
+  height: 26px; /* Altura do polegar */
+  border-radius: 50%; /* Circular */
+  background: var(--color-accent); /* Cor de destaque */
+  box-shadow: var(--shadow-sm); /* Sombra */
+  transition: transform 200ms ease; /* Animação ao alternar */
+}
+
+:global([data-theme='dark']) .themeThumb { transform: translateX(26px); } /* Move no tema escuro */
+
+.cart {
+  display: inline-flex; /* Layout flex */
+  align-items: center; /* Alinha verticalmente */
+  gap: 6px; /* Espaço entre ícone e número */
+  background: var(--color-surface-2); /* Fundo */
+  border: 1px solid var(--color-border); /* Borda */
+  border-radius: 999px; /* Cápsula */
+  padding: 6px 10px; /* Espaço interno */
+}
+
+.cartIcon { font-size: 16px; } /* Ícone do carrinho */
+
+.cartCount {
+  min-width: 1.5em; /* Largura mínima */
+  text-align: center; /* Centraliza texto */
+  font-weight: 700; /* Destaque no número */
+  color: var(--color-fg-strong); /* Cor forte */
+}
