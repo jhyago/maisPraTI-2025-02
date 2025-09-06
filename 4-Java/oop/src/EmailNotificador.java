@@ -5,7 +5,6 @@ public class EmailNotificador implements EnviadorNotificacao {
     }
 }
 
-
 // Implemente um cálculo de frete para dois tipos: padrão e expresso.
 //
 // O usuário informa peso (kg) e distância (km).
