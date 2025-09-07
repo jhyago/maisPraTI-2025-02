@@ -1,3 +1,5 @@
+package InterfaceExamples.ExercicioNotificacao;
+
 public class Alerta {
     private final EnviadorNotificacao notificador;
 

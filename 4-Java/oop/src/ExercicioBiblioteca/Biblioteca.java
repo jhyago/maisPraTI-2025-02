@@ -1,3 +1,5 @@
+package ExercicioBiblioteca;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,6 @@ public class Biblioteca {
             }
         }
 
-        System.out.println("Livro não encontrado!");
+        System.out.println("ExercicioBiblioteca.Livro não encontrado!");
     }
 }

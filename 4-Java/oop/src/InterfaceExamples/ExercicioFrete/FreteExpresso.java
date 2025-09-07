@@ -1,3 +1,5 @@
+package InterfaceExamples.ExercicioFrete;
+
 import java.math.BigDecimal;
 
 public final class FreteExpresso implements Frete {
