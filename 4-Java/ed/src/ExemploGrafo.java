@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class Graph<T> {
+public class ExemploGrafo<T> {
     private final boolean directed;
     private final Map<T, Set<T>> adj = new HashMap<>();
 
-    Graph(boolean directed) {
+    ExemploGrafo(boolean directed) {
         this.directed = directed;
     }
 
@@ -58,7 +58,7 @@ public class Graph<T> {
     @Override public String toString() { return adj.toString(); }
 
     public static void main(String[] args) {
-        Graph<String> g = new Graph<>(false);
+        ExemploGrafo<String> g = new ExemploGrafo<>(false);
         g.addEdge("A", "B");
         g.addEdge("A", "C");
         g.addEdge("B", "D");
