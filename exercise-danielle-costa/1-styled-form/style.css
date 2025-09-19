@@ -1,0 +1,90 @@
+body {
+    font-family: Open-sans, 'Open', sans-serif;
+    background-image: linear-gradient(to bottom, #BFACC8, #783F8E, #4F1271);
+    ;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    padding: 50px 40px;
+    margin: 20px;
+    max-width: 700px;
+    width: 100%;
+    animation: fadeIn 0.6s ease;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #4A4063;
+    margin-bottom: 35px;
+    margin-top: 0;
+    letter-spacing: 1px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #4A4063;
+    font-weight: 600;
+
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    margin-bottom: 10px;
+}
+
+.input-group .radio-group,
+.input-group .checkbox-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4F1271;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    padding: 14px 30px;
+    border-radius: 6px;
+    width: fit-content;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 30px auto 0;
+}
+
+button:hover {
+    background-color: #783F8E;
+    transform: scale(1.03);
+}
+
+/*
+div {
+    border: 1px solid red;
+}
+/*
