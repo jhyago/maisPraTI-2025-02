@@ -1,5 +1,6 @@
 package com.t2.springbasics;
 
+import com.t2.springbasics.exercicioIoC.MaquinaDeSorveteIoC;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +16,9 @@ public class SpringBasicsApplication {
 //    Você fará Parte A (sem IoC) e Parte B (com IoC/Spring), trocando a implementação no meio para ver o impacto.
 
     @Bean
-    CommandLineRunner init(Carro carro) {
+    CommandLineRunner init(MaquinaDeSorveteIoC maquina) {
         return args -> {
-            System.out.println("" + carro.tipo());
+            System.out.println("" + maquina.servir());
         };
     }
 }
