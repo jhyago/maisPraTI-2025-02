@@ -8,7 +8,7 @@
         <version>3.5.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.t2</groupId>
+    <groupId>com.t1</groupId>
     <artifactId>spring-basics</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-basics</name>

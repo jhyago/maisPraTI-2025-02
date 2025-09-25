@@ -1,4 +1,4 @@
-package com.t2.springbasics;
+package com.t1.springbasics;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
