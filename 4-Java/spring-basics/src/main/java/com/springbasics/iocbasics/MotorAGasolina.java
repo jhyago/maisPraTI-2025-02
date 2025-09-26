@@ -1,4 +1,4 @@
-package com.t1.springbasics.iocbasics;     // Mesmo pacote dos demais exemplos (Carrinho, Motor).
+package com.springbasics.iocbasics;     // Mesmo pacote dos demais exemplos (Carrinho, Motor).
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

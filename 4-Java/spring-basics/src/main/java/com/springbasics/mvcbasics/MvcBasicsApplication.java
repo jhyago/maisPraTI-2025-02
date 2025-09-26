@@ -1,12 +1,11 @@
-package com.springbasics;
+package com.springbasics.mvcbasics;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBasicsApplication {
+public class MvcBasicsApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBasicsApplication.class, args);
+        SpringApplication.run(MvcBasicsApplication.class, args);
     }
-
 }

@@ -1,4 +1,4 @@
-/*
+package com.springbasics.exercicioIoC;/*
  * Mini-programa para demonstrar Inversão de Controle (IoC) e Injeção de Dependência (DI)
  *
  * Ideia:

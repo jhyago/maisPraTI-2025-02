@@ -1,4 +1,4 @@
-package com.t1.springbasics.iocbasics;        // Pacote de “conceitos básicos” para ilustrar IoC/DI no Spring.
+package com.springbasics.iocbasics;        // Pacote de “conceitos básicos” para ilustrar IoC/DI no Spring.
 
 import org.springframework.stereotype.Service;
 

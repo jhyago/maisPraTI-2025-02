@@ -1,4 +1,4 @@
-package com.t1.springbasics.iocbasics;
+package com.springbasics.iocbasics;
 
 /**
  * Abstração de um motor para demonstrar IoC/DI no Spring.
