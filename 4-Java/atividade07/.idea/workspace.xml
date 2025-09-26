@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9adc29fc-59d4-4d12-9dbf-411b613dff9f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/atividade07.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio1e2/Produto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio3/Desenvolvedor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio3/Funcionario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio3/Gerente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio3/Principal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio4/Carro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio4/IMeioTransporte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio4/Principal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio7/Funcionario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio7/IRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio7/Identificavel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio7/InMemoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio7/Principal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exercicio7/Produto.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="32qXqItvwEziY6gMhUMq9I6oIkX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Principal.executor": "Run",
+    "Application.Produto.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.28293.39" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.28293.39" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9adc29fc-59d4-4d12-9dbf-411b613dff9f" name="Changes" comment="" />
+      <created>1758149266739</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758149266739</updated>
+      <workItem from="1758149268189" duration="4616000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
