@@ -9,9 +9,9 @@ public class Tarefa {
 
 
     public Tarefa(Long id, String titulo, boolean concluida) {
-        this.id = id;
-        this.titulo = titulo;
-        this.concluida = concluida;
+        this.setId(id);
+        this.setTitulo(titulo);
+        this.setConcluida(concluida);
     }
 
     public Long getId() {

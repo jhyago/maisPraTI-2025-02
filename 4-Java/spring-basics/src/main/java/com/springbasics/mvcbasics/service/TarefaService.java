@@ -24,4 +24,10 @@ public class TarefaService {
         banco.put(id, t);
         return t;
     }
+
+    public Tarefa marcarConcluida(Long id) {
+        Tarefa t = banco.get(id);
+        t.setConcluida(true);
+        return t;
+    }
 }

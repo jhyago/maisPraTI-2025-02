@@ -3,10 +3,7 @@ package com.springbasics.mvcbasics.controller;
 import com.springbasics.mvcbasics.model.Tarefa;
 import com.springbasics.mvcbasics.service.TarefaService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,11 @@ public class TarefaController {
     public ResponseEntity<Tarefa> criar(String titulo) {
         Tarefa t = service.criar(titulo);
         return ResponseEntity.ok(t);
+    }
+
+    @PutMapping
+    public ResponseEntity<Tarefa> marcarConcluida(@RequestParam Long id) {
+        service.marcarConcluida(id);
+        return ResponseEntity.ok().build();
     }
 }
