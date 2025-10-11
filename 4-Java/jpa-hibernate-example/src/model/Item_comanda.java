@@ -1,4 +1,4 @@
-package com.bomgosto.model;
+package model;
 
 import javax.persistence.*;
 
