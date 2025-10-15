@@ -27,17 +27,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal (HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        if(authHeader != null && authHeader.startsWith("Bearer ")) {
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);
-            if(jwtService.validateToken(token)) {
+            if (jwtService.validateToken(token)) {
                 String username = jwtService.getSubject(token);
                 User user = userRepository.findByUsername(username).orElse(null);
-                if(user != null) {
-                    var authorities = user.getRoles().stream().map(r -> new SimpleGrantedAuthority("ROLE" + r))
+                if (user != null) {
+                    var authorities = user.getRoles().stream()
+                            .map(r -> new SimpleGrantedAuthority("ROLE_" + r))
                             .collect(Collectors.toSet());
-                    var authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
+                    // Use username as principal so Principal#getName() works downstream
+                    var authentication = new UsernamePasswordAuthenticationToken(username, null, authorities);
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }
