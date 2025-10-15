@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #171d25;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav li +li {
+    margin-left: 1rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem;
+    display: block;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+}
+
+@media(max-width: 462px) {
+    .nav {
+        position: none;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+    }
+
+    .nav.open {
+        max-height: 200px;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}
+
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    background-image: url("https://shared.akamai.steamstatic.com/store_item_assets/steam/clusters/sale_summer2025/36a01fe4331ab0ca600ff205/page_bg_portuguese.webp?t=1750963512"); /* Adiciona imagem no fundo */
+    background-size: cover;
+    color: #fff;
+}
+
+.hero h1 {
+    background-color: #171d25;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.hero .container {
+    border-radius: 8px;
+    padding: 10px;
+    width: 30%;
+}
+
+.hero .btn {
+    margin-top: 1rem;
+    text-decoration: none;
+    transition: 0.5s; /* Adiciona transição ao retirar o mouse */
+}
+
+.hero .btn:hover {
+    background-color: #fff;
+    color: #333;
+    transition: 0.5s; /* Adiciona transição ao passar o mouse */
+}
+
+.services {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.card figure img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.contact {
+    padding: 2rem 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, textarea {
+    width: 90%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 0.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.footer {
+    background-color: #222830;
+    text-align: center;
+    padding: 1rem 0;
+}
