@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Declaração XML padrão informando versão e codificação do arquivo.
+
+# Por que essa configuração é necessária?
+- O Hibernate precisa saber como conectar no banco (driver, URL, usuário/senha) e como gerar SQL correto (dialeto).
+- A SessionFactory, criada a partir desse arquivo, é o componente responsável por abrir Sessions (equivalentes a conexões/unidades de trabalho) que executam consultas e transações.
+- Propriedades como show_sql/format_sql ajudam no debug; hbm2ddl.auto controla como o schema é criado/atualizado.
+- Sem essa configuração, o Hibernate não sabe onde nem como persistir as entidades mapeadas.
+
+# Onde colocar
+- Salve como src/main/resources/hibernate.cfg.xml (padrão).
+
+# Boas práticas rápidas
+- Credenciais: use variáveis de ambiente / arquivos externos (application.properties no Spring) ou um provedor de segredos; evite fixar username/password no XML.
+- Produção: evite hbm2ddl.auto=update/create/create-drop. Prefira migrações controladas (Flyway/Liquibase).
+- Pool de conexões: configure HikariCP para melhor desempenho (especialmente em produção).
+- Logs: mantenha show_sql/format_sql desativados em produção para não poluir logs nem vazar dados.
+
+OBS (propriedades opcionais úteis)
+- hibernate.current_session_context_class: "thread" ou "jta"
+- hibernate.hikari.*: configurações do pool de conexões (HikariCP)
+- hibernate.jdbc.time_zone: fuso horário para TIMESTAMP
+
+-->
+
+<hibernate-configuration>
+    <!-- Raiz do arquivo de configuração do Hibernate (modo XML clássico). -->
+
+    <session-factory>
+        <!--
+          Bloco principal que define como o Hibernate criará a SessionFactory.
+          A SessionFactory é o “motor” thread-safe que mantém o pool de conexões,
+          o dialeto SQL e demais configurações usadas para abrir Sessions.
+        -->
+
+        <!-- Driver JDBC que o Hibernate usará para falar com o PostgreSQL. -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+
+        <!-- URL JDBC apontando para o host, porta e banco de dados "cafeteria". -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/cafeteria</property>
+
+        <!-- Usuário do banco de dados. Substitua por um usuário real. -->
+        <property name="hibernate.connection.username">seu_usuario</property>
+
+        <!-- Senha do usuário do banco. Nunca versionar senhas reais no repositório. -->
+        <property name="hibernate.connection.password">sua_senha</property>
+
+        <!--
+          Dialeto SQL: orienta o Hibernate a gerar SQL compatível com o PostgreSQL.
+          Sem isso, funções/limitações específicas do banco podem falhar.
+        -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Exibir as instruções SQL geradas no console (útil em desenvolvimento). -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Formatar o SQL exibido para facilitar leitura nos logs. -->
+        <property name="hibernate.format_sql">true</property>
+
+        <!--
+          Estratégia para criação/atualização do schema:
+          - validate: valida mapeamentos vs. tabelas existentes (não altera nada)
+          - update: cria/altera tabelas conforme entidades (cuidado em produção)
+          - create / create-drop: recria o schema (apaga dados)
+          Aqui usamos "update" para evoluir o schema automaticamente em dev.
+        -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+
+        <!--
+        Em produção:
+        - desative show_sql/format_sql
+        - use validate (ou none) no hbm2ddl.auto e gerencie schema via migrações
+        -->
+    </session-factory>
+
+</hibernate-configuration>
