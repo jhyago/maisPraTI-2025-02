@@ -5,6 +5,7 @@ import com.t2.apiexample.course.CourseRepository;
 import com.t2.apiexample.enrollment.dto.EnrollmentRequest;
 import com.t2.apiexample.user.User;
 import com.t2.apiexample.user.UserRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Tag(name = "Enrollments")
 @RestController
 @RequestMapping("/enrollments")
 public class EnrollmentController {

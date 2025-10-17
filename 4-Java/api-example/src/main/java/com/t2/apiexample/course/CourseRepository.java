@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CourseRepository extends JpaRepository<Course, Long> {
-    @Query("select c from Course c where lower(c.name) like lower(concact('%', :name, '%')) order by c.name asc")
+    @Query("select c from Course c where lower(c.name) like lower(concat('%', :name, '%')) order by c.name asc")
     List<Course> findByNameContainingIgnoreCase(@Param("name") String name);
 }
