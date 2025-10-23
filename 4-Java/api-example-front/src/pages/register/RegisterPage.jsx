@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../app/state/auth.jsx'
 
 export default function RegisterPage() {
-    const { register } = useAuth()
+    const authContext = useAuth()
+    
+    const { register } = authContext || {}
     const [form, setForm] = useState({
         name: '',
         username: '',

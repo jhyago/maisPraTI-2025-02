@@ -20,8 +20,13 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         async function init() {
+            if (!token) {
+                setUser(null)
+                return
+            }
+            
             try {
-                const me = await getMe()
+                const me = await getMe(token)
                 setUser(me)
             } catch (e) {
                 setUser(null)
@@ -32,27 +37,30 @@ export function AuthProvider({ children }) {
     }, [token])
 
     const login = async (username, password) => {
-        const { token: t } = await authApi.login(username, password)
+        const { token: t } = await authApi.login({username, password})
         setToken(t)
-
-        const me = await getMe()
+        const me = await getMe(t)
         setUser(me)
     }
 
     const register = async (data) => {
         const { token: t } = await authApi.register(data)
         setToken(t)
-        const me = await getMe()
+        const me = await getMe(t)
         setUser(me)
     }
 
     const value = useMemo(
-        () => ({token, setToken, user, isAuthenticated: !!user, setUser, login, register}, 
-        [token, user])
+        () => {
+            const contextValue = {token, setToken, user, isAuthenticated: !!user, setUser, login, register}
+            return contextValue
+        }, 
+        [token, user]
     )
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
 export function useAuth() {
-    return useContext(AuthContext)
+    const context = useContext(AuthContext)
+    return context
 }
