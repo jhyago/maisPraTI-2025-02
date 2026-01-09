@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Danielle</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="form-container">
+        <h2>Formulário de Cadastro</h2>
+        <form>
+            <div class="input-group">
+                <label>Nome Completo:</label>
+                <input type="text">
+            </div>
+
+            <div class="input-group">
+                <label>E-mail:</label>
+                <input type="email" placeholder="usuario@email.com">
+            </div>
+
+            <div class="input-group">
+                <label>Senha:</label>
+                <input type="password" placeholder="Digite sua senha">
+            </div>
+
+            <div class="input-group">
+                <label>Telefone:</label>
+                <input type="tel" placeholder="Digite seu Telefone">
+            </div>
+
+            <div class="input-group">
+                <label>Website:</label>
+                <input type="url" placeholder="www.site.com.br">
+            </div>
+
+            <div class="input-group">
+                <label>Data de Nascimento:</label>
+                <input type="date">
+            </div>
+
+            <div class="input-group">
+                <label>Hora:</label>
+                <input type="time">
+            </div>
+
+            <div class="input-group">
+                <label>Pesquisa:</label>
+                <input type="search">
+            </div>
+
+            <div class="input-group">
+                <label>Quantidade:</label>
+                <input type="number">
+            </div>
+
+            <div class="input-group">
+                <label>Gênero:</label>
+                <div class="radio-group">
+                    <label for="male">
+                        <input type="radio" value="male" name="gender">Masculino
+                    </label>
+                    <label for="female">
+                        <input type="radio" value="female" name="gender">Feminino
+                    </label>
+                    <label for="other">
+                        <input type="radio" value="other" name="gender">Outro
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Preferências:</label>
+                <div class="checkbox-group">
+                    <label for="newsletter">
+                        <input type="checkbox" name="newsletter">Gostaria de assinar a newsletter
+                    </label>
+                    <label for="updates">
+                        <input type="checkbox" name="updates">Gostaria de receber atualizações
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="resume">Carregar Currículo:</label>
+                <input type="file" name="resume">
+            </div>
+
+            <div class="input-group">
+                <label for="city">Cidade:</label>
+                <select name="city">
+                    <option value="rs">Jaguarão</option>
+                    <option value="sp">Sorocaba</option>
+                    <option value="rj">Rio de Janeiro</option>
+                    <option value="rs">Tapes</option>
+                    <option value="pe">Olinda</option>
+                    <option value="rs">Parobé</option>
+                    <option value="rs">Bagé</option>
+                    <option value="pb">João Pessoa</option>
+                    <option value="ba">Salvador</option>
+                    <option value="ba">Xique-Xique</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="message">Mensagem</label>
+                <textarea name="message" placeholder="Deixe sua mensagem"></textarea>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+
+</html>
